@@ -59,7 +59,7 @@ public class controladorVenta implements ActionListener,KeyListener,MouseListene
     String dni,dnie,codC;
     
     double total;
-    String pagm, vuelm, totalm;
+    //String pagm, vuelm, totalm;
     
     DefaultTableModel modeloTV = new DefaultTableModel(){
             @Override
@@ -243,7 +243,7 @@ public class controladorVenta implements ActionListener,KeyListener,MouseListene
         if(e.getSource() == vistaV.btnventa){
             DecimalFormat decf = new DecimalFormat("###.##");
             double pago = Double.parseDouble(JOptionPane.showInputDialog("Monto con el que va a pagar"));
-            
+            String pagm="", vuelm="", totalm="";
             if (pago >= total){
                 Date now = new Date(System.currentTimeMillis());
                 SimpleDateFormat forma = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -278,8 +278,9 @@ public class controladorVenta implements ActionListener,KeyListener,MouseListene
                 vistaVV.txtvuelto.setEditable(false);
                 vistaVV.setLocationRelativeTo(null);
                 vistaVV.setVisible(true);
-                ImprimirTicket impt = new ImprimirTicket();
+               
                 try {
+                     ImprimirTicket impt = new ImprimirTicket();
                     impt.GenerarTickets(codV, dnie, fecha, listaDV, totalm, pagm, vuelm);
                 } catch (FileNotFoundException | DocumentException ex) {
                     Logger.getLogger(controladorVenta.class.getName()).log(Level.SEVERE, null, ex);

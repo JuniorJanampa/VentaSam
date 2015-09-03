@@ -164,4 +164,46 @@ public class empleadoDAO {
         }
         return rpta;
     }
+   public Empleado VerEmpresa(){
+        Empleado modeloE = new Empleado();
+        try {
+            Connection accesoBD = conec.getConexion();
+            PreparedStatement ps = accesoBD.prepareStatement("SELECT *FROM empleado WHERE DNI = 1");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                modeloE.setDni(rs.getString(1));
+                modeloE.setNombres(rs.getString(2));
+                modeloE.setApaterno(rs.getString(3));
+                modeloE.setAmaterno(rs.getString(4));
+                modeloE.setDireccion(rs.getString(5));
+                modeloE.setTelefono(rs.getString(6));
+                modeloE.setCorreo(rs.getString(7));
+                modeloE.setPas(rs.getString(8));
+                modeloE.setRol(rs.getString(9));
+            }
+        } catch (Exception e) {
+        }
+        return modeloE;
+    }
+    
+    
+    public int ActualizarEmpresa(String nombres,String apaterno,String amaterno,String direccion,String telefono,String correo){
+        int filasAfectadas=0;
+        try {
+            Connection accesoBD = conec.getConexion();
+            CallableStatement ps = accesoBD.prepareCall("{call mod_emp(?,?,?,?,?,?)}");
+           
+            ps.setString(1, nombres);
+            ps.setString(2, apaterno);
+            ps.setString(3, amaterno);
+            ps.setString(4, direccion);
+            ps.setString(5, telefono);
+            ps.setString(6, correo);
+           
+            filasAfectadas = ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(""+e);
+        }
+        return filasAfectadas;
+    }
 }

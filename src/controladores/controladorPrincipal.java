@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import vistas.vistaCaja;
 import vistas.vistaClientes;
 import vistas.vistaEmpleados;
+import vistas.vistaEmpresa;
 import vistas.vistaFaltantes;
 import vistas.vistaHistoricoVentas;
 import vistas.vistaLogin;
@@ -53,6 +54,7 @@ public class controladorPrincipal implements ActionListener{
         vistaP.btninventarios.addActionListener(this);
         vistaP.btnsalir.addActionListener(this);
         vistaP.btncambiarusuario.addActionListener(this);
+        vistaP.btnconf.addActionListener(this);
         
         vistaCa.btniniciar.addActionListener(this);
     }    
@@ -132,6 +134,15 @@ public class controladorPrincipal implements ActionListener{
             controladorF.incializarFaltantes();
             vistaF.setLocationRelativeTo(null);
             vistaF.setVisible(true);
+        }
+        
+        if (e.getSource()==vistaP.btnconf) {
+            vistaEmpresa  vistaEm = new vistaEmpresa();
+            empleadoDAO daoEm = new empleadoDAO();
+            controladorEmpresa controladorEm= new controladorEmpresa(vistaEm, daoEm);
+            controladorEm.inicializarEmpresa();
+            vistaEm.setLocationRelativeTo(null);
+            vistaEm.setVisible(true);
         }
         
         if(e.getSource() == vistaP.btnsalir){

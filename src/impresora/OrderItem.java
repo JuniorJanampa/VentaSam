@@ -10,7 +10,8 @@ package impresora;
  * @author edson
  */
 public class OrderItem {
-    char[] temp=new char[]{' '}; 
+    char[] temp=new char[]{' '};
+    
     public OrderItem(char delimit){
         temp=new char[]{delimit};
     }

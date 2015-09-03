@@ -27,40 +27,40 @@ import javax.swing.JOptionPane;
  * @author edson
  */
 public class Ticket {
-    static ArrayList<String> CabezaLineas=new ArrayList<String>();
-    static ArrayList<String> subCabezaLineas= new ArrayList<String>();
-    static ArrayList<String> items=new ArrayList<String>(); 
-    static ArrayList<String> totales=new ArrayList<String>(); 
-    static ArrayList<String> LineasPie=new ArrayList<String>();
+    public ArrayList<String> CabezaLineas=new ArrayList<String>();
+    public ArrayList<String> subCabezaLineas= new ArrayList<String>();
+    public ArrayList<String> items=new ArrayList<String>(); 
+    public ArrayList<String> totales=new ArrayList<String>(); 
+    public ArrayList<String> LineasPie=new ArrayList<String>();
     
    
     
     
-    public static void AddCabecera(String line){
+    public void AddCabecera(String line){
         CabezaLineas.add(line);
     }
-    public static void AddSubCabecera(String line){
+    public  void AddSubCabecera(String line){
         subCabezaLineas.add(line);
     }
-    public static void AddItem(String cantidad,String item,String price){
+    public void AddItem(String cantidad,String item,String price){
         OrderItem newItem = new OrderItem(' ');
         items.add(newItem.GeneraItem(cantidad,item, price)); 
     }
-    public static void AddTotal(String name,String price){ 
+    public void AddTotal(String name,String price){ 
         OrderTotal newTotal = new OrderTotal(' '); 
         totales.add(newTotal.GeneraTotal(name, price)); 
     }
     
-    public static void AddPieLinea(String line){
+    public void AddPieLinea(String line){
         LineasPie.add(line);
     } 
-    public static String DibujarLinea(int valor){ 
+    public  String DibujarLinea(int valor){ 
         String raya="";for(int x=0;x<valor;x++){raya+="=";}return raya; 
     } 
     public static String DarEspacio(){
         return "\n";
     } 
-    public static void ImprimirDocumento() { 
+    public void ImprimirDocumento() { 
         String cadena=""; 
         for(int cabecera=0;cabecera<CabezaLineas.size();cabecera++){
             cadena+=CabezaLineas.get(cabecera);
