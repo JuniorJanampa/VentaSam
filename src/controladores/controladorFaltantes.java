@@ -20,7 +20,6 @@ public class controladorFaltantes implements ActionListener{
     vistaFaltantes vistaF = new vistaFaltantes();
     faltantesDAO daoF = new faltantesDAO();
     
-    String[] cod_prov;
     
     public controladorFaltantes(vistaFaltantes vistaF, faltantesDAO daoF){
         this.vistaF = vistaF;
@@ -41,9 +40,7 @@ public class controladorFaltantes implements ActionListener{
         vistaF.cmbprov.addItem("");
         proveedoresDAO daoProv = new proveedoresDAO();
         int filas = daoProv.listarProveedores().size();
-        cod_prov = new String[filas];
         for (int i = 0; i < filas; i++) {
-            cod_prov[i] = daoProv.listarProveedores().get(i).getCodigo();
             vistaF.cmbprov.addItem(daoProv.listarProveedores().get(i).getRazonsocial());
         }
     }

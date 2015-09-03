@@ -8,9 +8,12 @@ package controladores;
 import DAO.LoginDAO;
 import DAO.cajaDAO;
 import DAO.clienteDAO;
+import DAO.compraDAO;
+import DAO.detallecompraDAO;
 import DAO.detalleventaDAO;
 import DAO.empleadoDAO;
 import DAO.faltantesDAO;
+import DAO.movimientoDAO;
 import DAO.productoDAO;
 import DAO.proveedoresDAO;
 import DAO.ventaDAO;
@@ -19,14 +22,18 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
 import vistas.vistaCaja;
 import vistas.vistaCajaI;
 import vistas.vistaClientes;
+import vistas.vistaCompras;
 import vistas.vistaEmpleados;
 import vistas.vistaEmpresa;
 import vistas.vistaFaltantes;
+import vistas.vistaHistoricoCompras;
 import vistas.vistaHistoricoVentas;
 import vistas.vistaLogin;
+import vistas.vistaMovimientoIventario;
 import vistas.vistaPrincipal;
 import vistas.vistaProductos;
 import vistas.vistaProveedores;
@@ -45,22 +52,26 @@ public class controladorPrincipal implements ActionListener{
     String codC;
     double cant_i=0.0;
     
+    JPopupMenu hisven = new JPopupMenu("Historico Ventas");
+        JPopupMenu hiscom = new JPopupMenu("Historico Compras");
+    
     public controladorPrincipal(vistaPrincipal vistaP,String dni){
         this.vistaP = vistaP;
         this.dni = dni;
-        vistaP.btnnuevaventa.addActionListener(this);
-        vistaP.btnclientes.addActionListener(this);
-        vistaP.btnfaltantes.addActionListener(this);
-        vistaP.btnempleados.addActionListener(this);
-        vistaP.btnproductos.addActionListener(this);
-        vistaP.btncaja.addActionListener(this);
-        vistaP.btnproveedores.addActionListener(this);
-        vistaP.btnhistorico.addActionListener(this);
-        vistaP.btncompras.addActionListener(this);
-        vistaP.btninventarios.addActionListener(this);
-        vistaP.btnsalir.addActionListener(this);
-        vistaP.btncambiarusuario.addActionListener(this);
-        vistaP.btnconf.addActionListener(this);
+        this.vistaP.btnnuevaventa.addActionListener(this);
+        this.vistaP.btnclientes.addActionListener(this);
+        this.vistaP.btnfaltantes.addActionListener(this);
+        this.vistaP.btnempleados.addActionListener(this);
+        this.vistaP.btnproductos.addActionListener(this);
+        this.vistaP.btncaja.addActionListener(this);
+        this.vistaP.btnproveedores.addActionListener(this);
+        this.vistaP.btnhistoricoven.addActionListener(this);
+        this.vistaP.btnhistoricocom.addActionListener(this);
+        this.vistaP.btncompras.addActionListener(this);
+        this.vistaP.btninventarios.addActionListener(this);
+        this.vistaP.btnsalir.addActionListener(this);
+        this.vistaP.btncambiarusuario.addActionListener(this);
+        this.vistaP.btnconf.addActionListener(this);
         
         this.vistaCa.btniniciar.addActionListener(this);
         this.vistaCa.btncancelar.addActionListener(this);
@@ -68,6 +79,8 @@ public class controladorPrincipal implements ActionListener{
     
     public void inicio(){
         iniciarCaja();
+        
+        
     }
     
     public void iniciarCaja(){
@@ -146,10 +159,40 @@ public class controladorPrincipal implements ActionListener{
             vistaP.dispose();
         }
         
-        if(e.getSource() == vistaP.btnhistorico){
+        if(e.getSource() == vistaP.btncompras){
+            vistaCompras vistaCo = new vistaCompras();
+            compraDAO daoCo = new compraDAO();
+            detallecompraDAO daoDCo = new detallecompraDAO();
+            controladorCompra controladorCo = new controladorCompra(vistaCo, daoCo,daoDCo,dni,codC);
+            controladorCo.inicializarCompra();
+            vistaCo.setLocationRelativeTo(null);
+            vistaCo.setVisible(true);            
+        }
+        
+        if(e.getSource() == vistaP.btninventarios){
+            vistaMovimientoIventario vistaMI = new vistaMovimientoIventario();
+            movimientoDAO daoMI = new movimientoDAO();
+            controladorMovimiento controladorMI = new controladorMovimiento(vistaMI, daoMI);
+            controladorMI.inicializarMovI();
+            vistaMI.setLocationRelativeTo(null);
+            vistaMI.setVisible(true);
+        }
+        
+        if(e.getSource() == vistaP.btnhistoricocom){
+            vistaHistoricoCompras vistaHCo = new vistaHistoricoCompras();
+            compraDAO daoV = new compraDAO();
+            detallecompraDAO daoDV = new detallecompraDAO();
+            controladorHCompras controladorCo = new controladorHCompras(vistaHCo, daoV,daoDV);
+            controladorCo.inicializarHVentas();
+            vistaHCo.setVisible(true);
+            vistaHCo.setLocationRelativeTo(null);
+        }
+        
+        if(e.getSource() == vistaP.btnhistoricoven){
             vistaHistoricoVentas vistaHV = new vistaHistoricoVentas();
             ventaDAO daoV = new ventaDAO();
-            controladorHVentas controladorV = new controladorHVentas(vistaHV, daoV);
+            detalleventaDAO daoDV = new detalleventaDAO();
+            controladorHVentas controladorV = new controladorHVentas(vistaHV, daoV,daoDV);
             controladorV.inicializarHVentas();
             vistaHV.setVisible(true);
             vistaHV.setLocationRelativeTo(null);

@@ -9,12 +9,12 @@ package vistas;
  *
  * @author Jhunior
  */
-public class vistaHistoricoVentas extends javax.swing.JFrame {
+public class vistaHistoricoCompras extends javax.swing.JFrame {
 
     /**
-     * Creates new form vistaHistoricoVen
+     * Creates new form vistaHistoricoCompras
      */
-    public vistaHistoricoVentas() {
+    public vistaHistoricoCompras() {
         initComponents();
     }
 
@@ -27,124 +27,37 @@ public class vistaHistoricoVentas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        rbgrupo = new javax.swing.ButtonGroup();
-        rbentre = new javax.swing.JRadioButton();
-        lblfiltrar = new javax.swing.JLabel();
-        lbly = new javax.swing.JLabel();
-        dtfecha2 = new com.toedter.calendar.JDateChooser();
-        dtfecha1 = new com.toedter.calendar.JDateChooser();
-        jLabel4 = new javax.swing.JLabel();
-        btncerrar = new javax.swing.JButton();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        panelhistorico = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblcompras = new javax.swing.JTable();
         btnfiltrar = new javax.swing.JButton();
+        btncerrar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        dtfecha1 = new com.toedter.calendar.JDateChooser();
+        dtfecha2 = new com.toedter.calendar.JDateChooser();
+        lbly = new javax.swing.JLabel();
+        lblfiltrar = new javax.swing.JLabel();
+        rbdia = new javax.swing.JRadioButton();
+        rbentre = new javax.swing.JRadioButton();
+        btntodo = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbldetalle = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        txtcliente = new javax.swing.JTextField();
+        txtprov = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtempleado = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtfecha = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         txttotal = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tbldetalle = new javax.swing.JTable();
-        panelhistorico = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblventas = new javax.swing.JTable();
-        btntodo = new javax.swing.JButton();
-        rbdia = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        rbgrupo.add(rbentre);
-        rbentre.setText("Filtrar entre 2 fechas");
-
-        lblfiltrar.setText("Filtrar Día: ");
-
-        lbly.setText("hasta");
-
-        jLabel4.setText("DETALLE DE VENTA");
-
-        btncerrar.setText("Cerrar");
-
-        btnfiltrar.setText("Filtrar");
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Histórico Específico"));
-
-        jLabel2.setText("Cliente:");
-
-        jLabel5.setText("Empleado:");
-
-        jLabel6.setText("Fecha:");
-
-        jLabel1.setText("Total:");
-
-        tbldetalle.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane2.setViewportView(tbldetalle);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtempleado))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtfecha, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtcliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtempleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-
         panelhistorico.setBorder(javax.swing.BorderFactory.createTitledBorder("Histórico"));
 
-        tblventas.setModel(new javax.swing.table.DefaultTableModel(
+        tblcompras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -155,7 +68,7 @@ public class vistaHistoricoVentas extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(tblventas);
+        jScrollPane1.setViewportView(tblcompras);
 
         javax.swing.GroupLayout panelhistoricoLayout = new javax.swing.GroupLayout(panelhistorico);
         panelhistorico.setLayout(panelhistoricoLayout);
@@ -173,10 +86,97 @@ public class vistaHistoricoVentas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btnfiltrar.setText("Filtrar");
+
+        btncerrar.setText("Cerrar");
+
+        jLabel4.setText("DETALLE DE COMPRA");
+
+        lbly.setText("hasta");
+
+        lblfiltrar.setText("Filtrar Día: ");
+
+        buttonGroup1.add(rbdia);
+        rbdia.setText("Filtrar por Día");
+
+        buttonGroup1.add(rbentre);
+        rbentre.setText("Filtrar entre 2 fechas");
+
         btntodo.setText("Todo el Historial");
 
-        rbgrupo.add(rbdia);
-        rbdia.setText("Filtrar por Día");
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Histórico Específico"));
+
+        tbldetalle.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(tbldetalle);
+
+        jLabel2.setText("Proveedor:");
+
+        jLabel5.setText("Empleado:");
+
+        jLabel6.setText("Fecha:");
+
+        jLabel1.setText("Total:");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtempleado))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtprov, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtfecha, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtprov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtempleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -273,21 +273,20 @@ public class vistaHistoricoVentas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vistaHistoricoVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vistaHistoricoCompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vistaHistoricoVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vistaHistoricoCompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vistaHistoricoVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vistaHistoricoCompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vistaHistoricoVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vistaHistoricoCompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new vistaHistoricoVentas().setVisible(true);
+                new vistaHistoricoCompras().setVisible(true);
             }
         });
     }
@@ -296,6 +295,7 @@ public class vistaHistoricoVentas extends javax.swing.JFrame {
     public javax.swing.JButton btncerrar;
     public javax.swing.JButton btnfiltrar;
     public javax.swing.JButton btntodo;
+    private javax.swing.ButtonGroup buttonGroup1;
     public com.toedter.calendar.JDateChooser dtfecha1;
     public com.toedter.calendar.JDateChooser dtfecha2;
     private javax.swing.JLabel jLabel1;
@@ -311,12 +311,11 @@ public class vistaHistoricoVentas extends javax.swing.JFrame {
     private javax.swing.JPanel panelhistorico;
     public javax.swing.JRadioButton rbdia;
     public javax.swing.JRadioButton rbentre;
-    private javax.swing.ButtonGroup rbgrupo;
+    public javax.swing.JTable tblcompras;
     public javax.swing.JTable tbldetalle;
-    public javax.swing.JTable tblventas;
-    public javax.swing.JTextField txtcliente;
     public javax.swing.JTextField txtempleado;
     public javax.swing.JTextField txtfecha;
+    public javax.swing.JTextField txtprov;
     public javax.swing.JTextField txttotal;
     // End of variables declaration//GEN-END:variables
 }

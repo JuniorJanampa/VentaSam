@@ -24,7 +24,7 @@ public class proveedoresDAO {
         String rpta=null;
         try {
             Connection accesoBD = conec.getConexion();
-            CallableStatement cs = accesoBD.prepareCall("{call ins_pro(?,?,?,?,?,?,?,?,?,?)}");
+            CallableStatement cs = accesoBD.prepareCall("{call prov_ins(?,?,?,?,?,?,?,?,?,?)}");
             cs.setString(1,ruc);
             cs.setString(2,rsoc);
             cs.setString(3,dir);
@@ -40,6 +40,7 @@ public class proveedoresDAO {
                 rpta="Registro Exitoso";
             }
         } catch (Exception e) {
+            System.out.println(e);
         }
         return rpta;
     }
@@ -131,6 +132,33 @@ public class proveedoresDAO {
         }
         return modeloProv;
     }
+    
+    public Proveedores buscarCod(String cod){
+        Proveedores modeloProv = new Proveedores();
+        try {
+            Connection accesoBD = conec.getConexion();
+            PreparedStatement ps = accesoBD.prepareStatement("SELECT *FROM proveedores WHERE codigo = ?");
+            ps.setString(1, cod);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                modeloProv.setCodigo(rs.getString(1));
+                modeloProv.setRuc(rs.getString(2));
+                modeloProv.setRazonsocial(rs.getString(3));
+                modeloProv.setDireccion(rs.getString(4));
+                modeloProv.setTelefono(rs.getString(5));
+                modeloProv.setCorreo(rs.getString(6));
+                modeloProv.setNrocuenta(rs.getString(7));
+                modeloProv.setBanco(rs.getString(8));
+                modeloProv.setContacto(rs.getString(9));
+                modeloProv.setTele_contacto(rs.getString(10));
+                modeloProv.setCorreo_contacto(rs.getString(11));
+            }
+        } catch (Exception e) {
+        }
+        return modeloProv;
+    }
+    
+    
     
     public ArrayList<Proveedores> buscarRazon(String razon){
         ArrayList listaProv = new ArrayList();

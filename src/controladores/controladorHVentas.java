@@ -14,7 +14,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -30,6 +29,7 @@ import vistas.vistaHistoricoVentas;
 public class controladorHVentas implements ActionListener,MouseListener{
     vistaHistoricoVentas vistaHV = new vistaHistoricoVentas();
     ventaDAO daoV = new ventaDAO();
+    detalleventaDAO daoDV = new detalleventaDAO();
     
     Empleado modeloE;
     Cliente modeloC = new Cliente();
@@ -38,9 +38,9 @@ public class controladorHVentas implements ActionListener,MouseListener{
     productoDAO daoProd = new productoDAO();
     empleadoDAO daoE = new empleadoDAO();
     clienteDAO daoC = new clienteDAO();
-    detalleventaDAO daoDV = new detalleventaDAO();
     
-    public controladorHVentas(vistaHistoricoVentas vistaVH,ventaDAO daoV){
+    
+    public controladorHVentas(vistaHistoricoVentas vistaVH,ventaDAO daoV,detalleventaDAO daoDV){
         this.vistaHV = vistaVH;
         this.daoV = daoV;
         this.vistaHV.btncerrar.addActionListener(this);
@@ -59,11 +59,11 @@ public class controladorHVentas implements ActionListener,MouseListener{
         vistaHV.txtfecha.setEditable(false);
         vistaHV.txtempleado.setEditable(false);
         vistaHV.txttotal.setEditable(false);       
-        LLenarTablaProd(vistaHV.tblventas);
+        LLenarTablaVen(vistaHV.tblventas);
         
     }
     
-    public void LLenarTablaProd(JTable tablaD){
+    public void LLenarTablaVen(JTable tablaD){
         
         DefaultTableModel  modeloT = new DefaultTableModel(){
             @Override
@@ -107,7 +107,7 @@ public class controladorHVentas implements ActionListener,MouseListener{
         }
         
         if(e.getSource() == vistaHV.btntodo){
-            LLenarTablaProd(vistaHV.tblventas);
+            LLenarTablaVen(vistaHV.tblventas);
         }
         
         if(e.getSource() == vistaHV.rbdia){
@@ -224,7 +224,7 @@ public class controladorHVentas implements ActionListener,MouseListener{
                 }
                 
                 vistaHV.txtcliente.setText(nom_cli);
-                vistaHV.txtempleado.setText(modeloE.getNombres()+ modeloE.getApaterno());
+                vistaHV.txtempleado.setText(modeloE.getNombres()+" " +modeloE.getApaterno());
                 vistaHV.txtfecha.setText(String.valueOf(fecha));
                 vistaHV.txttotal.setText(String.valueOf(importe));
                 

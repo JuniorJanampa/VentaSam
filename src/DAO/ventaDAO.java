@@ -80,7 +80,7 @@ public class ventaDAO {
         Ventas modeloV;
         try {
             Connection accesoBD = conec.getConexion();
-            CallableStatement cs = accesoBD.prepareCall("{call filtrar_dia(?)}");
+            CallableStatement cs = accesoBD.prepareCall("{call v_filtrar_dia(?)}");
             cs.setString(1, fec1);
             ResultSet rs = cs.executeQuery();
             while(rs.next()){
@@ -103,7 +103,7 @@ public class ventaDAO {
         Ventas modeloV;
         try {
             Connection accesoBD = conec.getConexion();
-            CallableStatement cs = accesoBD.prepareCall("{call filtrar_entre(?,?)}");
+            CallableStatement cs = accesoBD.prepareCall("{call v_filtrar_entre(?,?)}");
             cs.setString(1, fec1);
             cs.setString(2, fec2);
             ResultSet rs = cs.executeQuery();
