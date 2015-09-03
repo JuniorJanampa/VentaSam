@@ -16,7 +16,11 @@ import DAO.proveedoresDAO;
 import DAO.ventaDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 import vistas.vistaCaja;
+import vistas.vistaCajaI;
 import vistas.vistaClientes;
 import vistas.vistaEmpleados;
 import vistas.vistaEmpresa;
@@ -34,10 +38,12 @@ import vistas.vistaVentas;
  */
 public class controladorPrincipal implements ActionListener{
     vistaPrincipal vistaP = new vistaPrincipal();
-    vistaCaja vistaCa = new vistaCaja(vistaP, true);
+    vistaCajaI vistaCa = new vistaCajaI(vistaP, true);
     
+    cajaDAO daoCa = new cajaDAO();
     String dni;
     String codC;
+    double cant_i=0.0;
     
     public controladorPrincipal(vistaPrincipal vistaP,String dni){
         this.vistaP = vistaP;
@@ -56,12 +62,34 @@ public class controladorPrincipal implements ActionListener{
         vistaP.btncambiarusuario.addActionListener(this);
         vistaP.btnconf.addActionListener(this);
         
-        vistaCa.btniniciar.addActionListener(this);
+        this.vistaCa.btniniciar.addActionListener(this);
+        this.vistaCa.btncancelar.addActionListener(this);
     }    
     
     public void inicio(){
-        vistaCa.setLocationRelativeTo(null);
-        vistaCa.setVisible(true);
+        iniciarCaja();
+    }
+    
+    public void iniciarCaja(){
+        codC = daoCa.codigoCaja();
+        
+        if(!codC.equals("")){
+            cant_i = daoCa.cajaDiaria(codC);
+        }
+        
+        String rptaf = daoCa.fechaCaja(codC);
+        
+        Date fec = new Date(System.currentTimeMillis());
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+        
+        String now = String.valueOf(f.format(fec));
+        if(!rptaf.equals(now)){
+            vistaCa.txtfecha.setText(now);
+            vistaCa.txtfecha.setEditable(false);
+            vistaCa.txtcajainicial.setText(String.valueOf(cant_i));
+            vistaCa.setLocationRelativeTo(null);
+            vistaCa.setVisible(true);
+        }
     }
     
     @Override
@@ -144,15 +172,31 @@ public class controladorPrincipal implements ActionListener{
             vistaEm.setLocationRelativeTo(null);
             vistaEm.setVisible(true);
         }
+        if(e.getSource() == vistaP.btncaja){
+            vistaCaja vistaCaj = new vistaCaja();
+            cajaDAO daoCaj = new cajaDAO();
+            controladorCaja controladorCaj = new controladorCaja(vistaCaj, daoCaj);
+            controladorCaj.incializarCaja();
+            vistaCaj.setLocationRelativeTo(null);
+            vistaCaj.setVisible(true);
+        }
+        
+        
         
         if(e.getSource() == vistaP.btnsalir){
             System.exit(0);
         }
-        
+                
         if(e.getSource() == vistaCa.btniniciar){
-            cajaDAO daoCa = new cajaDAO();
+            String rpta = daoCa.insertarNCaja();
             codC = daoCa.codigoCaja();
+            daoCa.actualizarCI(codC,Double.parseDouble(vistaCa.txtcajainicial.getText()));
+            JOptionPane.showMessageDialog(vistaCa, rpta);
             vistaCa.dispose();
+        }
+        
+        if(e.getSource() == vistaCa.btncancelar){
+            System.exit(0);
         }
     }
 }
