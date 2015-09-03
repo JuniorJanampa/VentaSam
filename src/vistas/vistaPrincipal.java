@@ -6,7 +6,6 @@
 package vistas;
 
 import com.itextpdf.text.DocumentException;
-import impresora.ImprimirTicket;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -181,6 +180,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         });
 
         btnconf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/process.png"))); // NOI18N
+        btnconf.setText("Modificar Datos de la Empresa");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -206,10 +206,6 @@ public class vistaPrincipal extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblbienvenida)
-                                .addComponent(lblrol))
-                            .addComponent(btnconf, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -226,14 +222,10 @@ public class vistaPrincipal extends javax.swing.JFrame {
                             .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btncambiarusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblbienvenida)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblrol)
-                        .addGap(187, 187, 187)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnconf)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblbienvenida)
+                                .addComponent(lblrol))
+                            .addComponent(btnconf, javax.swing.GroupLayout.Alignment.TRAILING))))
         );
 
         pack();

@@ -178,6 +178,22 @@ public class vistaHistoricoVentas extends javax.swing.JFrame {
         rbgrupo.add(rbdia);
         rbdia.setText("Filtrar por Día");
 
+        rbgrupo.add(rbentre);
+        rbentre.setText("Filtrar entre 2 fechas");
+
+        lblfiltrar.setText("Filtrar Día: ");
+
+        lbly.setText("hasta");
+
+        jLabel4.setText("DETALLE DE VENTA");
+
+        btncerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete.png"))); // NOI18N
+        btncerrar.setText("Cerrar");
+
+        btnfiltrar.setText("Filtrar");
+
+        btntodo.setText("Todo el Historial");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(

@@ -5,7 +5,6 @@
  */
 package vistas;
 
-import impresora.ImprimirTicket;
 import javax.swing.JOptionPane;
 
 /**

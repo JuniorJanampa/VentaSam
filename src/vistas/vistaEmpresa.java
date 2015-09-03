@@ -16,6 +16,7 @@ public class vistaEmpresa extends javax.swing.JFrame {
      */
     public vistaEmpresa() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -42,7 +43,9 @@ public class vistaEmpresa extends javax.swing.JFrame {
         btnguardar = new javax.swing.JButton();
         btnsalir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Datos de la Empresa-SCAMVentas 1.1");
+        setResizable(false);
 
         jLabel1.setText("Nombre de la Empresa:");
 
@@ -56,8 +59,10 @@ public class vistaEmpresa extends javax.swing.JFrame {
 
         jLabel6.setText("Correo:");
 
+        btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/save.png"))); // NOI18N
         btnguardar.setText("Guardar Cambios");
 
+        btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete.png"))); // NOI18N
         btnsalir.setText("Cerrar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -71,7 +76,7 @@ public class vistaEmpresa extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
@@ -87,13 +92,13 @@ public class vistaEmpresa extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(btnguardar)
                                         .addGap(18, 18, 18)
-                                        .addComponent(btnsalir, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE))
+                                        .addComponent(btnsalir, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
                                     .addComponent(txtdirec)
                                     .addComponent(txtruc, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txttiporg)
                                     .addComponent(txttel)
-                                    .addComponent(txtcorreo))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(txtcorreo)
+                                    .addComponent(txttiporg))))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
