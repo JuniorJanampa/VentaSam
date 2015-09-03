@@ -45,6 +45,8 @@ public class vistaCajaC extends javax.swing.JDialog {
         btncerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cierre de Caja-SCAMVentas1.1");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         jLabel1.setText("CIERRE DE CAJA");

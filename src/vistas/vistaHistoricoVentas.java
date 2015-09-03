@@ -173,6 +173,7 @@ public class vistaHistoricoVentas extends javax.swing.JFrame {
 
         jLabel4.setText("DETALLE DE VENTA");
 
+        btncerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete.png"))); // NOI18N
         btncerrar.setText("Cerrar");
 
         btnfiltrar.setText("Filtrar");

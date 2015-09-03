@@ -24,7 +24,7 @@ public class proveedoresDAO {
         String rpta=null;
         try {
             Connection accesoBD = conec.getConexion();
-            CallableStatement cs = accesoBD.prepareCall("{call ins_pro(?,?,?,?,?,?,?,?,?,?)}");
+            CallableStatement cs = accesoBD.prepareCall("{call prov_ins(?,?,?,?,?,?,?,?,?,?)}");
             cs.setString(1,ruc);
             cs.setString(2,rsoc);
             cs.setString(3,dir);

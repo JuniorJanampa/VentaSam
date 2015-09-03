@@ -57,6 +57,8 @@ public class vistaCajaH extends javax.swing.JDialog {
         btntodos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Historial de Caja-SCAMVentas1.1");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         jLabel1.setText("Historial de Caja");
@@ -71,6 +73,7 @@ public class vistaCajaH extends javax.swing.JDialog {
 
         lbly.setText("hasta");
 
+        btnfiltrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search_database.png"))); // NOI18N
         btnfiltrar.setText("Filtrar");
 
         panelhistorico.setBorder(javax.swing.BorderFactory.createTitledBorder("Histórico"));
@@ -188,8 +191,10 @@ public class vistaCajaH extends javax.swing.JDialog {
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
+        btncerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete.png"))); // NOI18N
         btncerrar.setText("Cerrar");
 
+        btntodos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/database.png"))); // NOI18N
         btntodos.setText("Todos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -229,11 +234,11 @@ public class vistaCajaH extends javax.swing.JDialog {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(66, 66, 66))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btncerrar)
-                                .addContainerGap())))))
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(66, 66, 66))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
