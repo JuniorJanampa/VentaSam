@@ -117,6 +117,8 @@ public class vistaVentas extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre:");
 
+        txttotal.setEditable(false);
+
         jLabel4.setText("Total:");
 
         btnacliente.setText("Agregar Cliente");

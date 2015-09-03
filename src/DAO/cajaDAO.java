@@ -6,6 +6,7 @@
 package DAO;
 
 import java.sql.*;
+import java.util.ArrayList;
 import modelos.Caja;
 /**
  *
@@ -92,6 +93,7 @@ public class cajaDAO {
             CallableStatement cs = accesaBD.prepareCall("{call caj_umi(?,?)}");
             cs.setString(1, cod_c);
             cs.setDouble(2, imp);
+            int r = cs.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -177,4 +179,73 @@ public class cajaDAO {
             }
             return modeloCa;
         }
+        
+        public ArrayList<Caja> listarCaja(){
+            ArrayList listaCa = new ArrayList();
+            Caja modeloCa;
+            try {
+                Connection accesoBD = conec.getConexion();
+                PreparedStatement ps = accesoBD.prepareStatement("SELECT *FROM caja");
+                ResultSet rs = ps.executeQuery();
+                while(rs.next()){
+                    modeloCa = new Caja();
+                    modeloCa.setCodigo(rs.getString(1));
+                    modeloCa.setFecha(rs.getDate(2));
+                    modeloCa.setD_ini(rs.getDouble(3));
+                    modeloCa.setE_din(rs.getDouble(4));
+                    modeloCa.setS_dni(rs.getDouble(5));
+                    listaCa.add(modeloCa);
+                }
+            } catch (Exception e) {
+            }
+            return listaCa;
+        }
+        
+        public ArrayList<Caja> porDia(String fecha){
+            ArrayList listaCa = new ArrayList();
+            Caja modeloCa;
+            try {
+                Connection accesoBD = conec.getConexion();
+                PreparedStatement ps = accesoBD.prepareStatement("SELECT *FROM caja WHERE cast(fecha as DATE) = ?");
+                ps.setString(1, fecha);
+                ResultSet rs = ps.executeQuery();
+                while(rs.next()){
+                    modeloCa = new Caja();
+                    modeloCa.setCodigo(rs.getString(1));
+                    modeloCa.setFecha(rs.getDate(2));
+                    modeloCa.setD_ini(rs.getDouble(3));
+                    modeloCa.setE_din(rs.getDouble(4));
+                    modeloCa.setS_dni(rs.getDouble(5));
+                    listaCa.add(modeloCa);
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            return listaCa;
+        }
+        
+        public ArrayList<Caja> entreDias(String f1,String f2){
+            ArrayList listaCa = new ArrayList();
+            Caja modeloCa;
+            try {
+                Connection accesoBD = conec.getConexion();
+                PreparedStatement ps = accesoBD.prepareStatement("SELECT * FROM venta WHERE fecha between ? and DATE_ADD(?, INTERVAL 1 DAY)");
+                ps.setString(1, f1);
+                ps.setString(2, f2);
+                ResultSet rs = ps.executeQuery();
+                while(rs.next()){
+                    modeloCa = new Caja();
+                    modeloCa.setCodigo(rs.getString(1));
+                    modeloCa.setFecha(rs.getDate(2));
+                    modeloCa.setD_ini(rs.getDouble(3));
+                    modeloCa.setE_din(rs.getDouble(4));
+                    modeloCa.setS_dni(rs.getDouble(5));
+                    listaCa.add(modeloCa);
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            return listaCa;
+        }
+        
 }

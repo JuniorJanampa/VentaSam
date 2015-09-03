@@ -41,6 +41,7 @@ public class vistaInfo extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Oxygen-Sans Sans-Book", 3, 18)); // NOI18N
         jLabel1.setText("System, Communications, Assitance & Management");
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Oxygen-Sans Sans-Book", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
@@ -88,7 +89,7 @@ public class vistaInfo extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnaceptar)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();

@@ -31,7 +31,7 @@ public class controladorHVentas implements ActionListener,MouseListener{
     vistaHistoricoVentas vistaHV = new vistaHistoricoVentas();
     ventaDAO daoV = new ventaDAO();
     
-    Empleado modeloE = new Empleado();
+    Empleado modeloE;
     Cliente modeloC = new Cliente();
     Productos modeloProd = new Productos();
     
@@ -139,7 +139,7 @@ public class controladorHVentas implements ActionListener,MouseListener{
             
             if(vistaHV.rbdia.isSelected()){
                 String fec1 = new SimpleDateFormat("yyyy-MM-dd").format(vistaHV.dtfecha1.getDate());
-                System.out.println(""+fec1);
+
                 int numRegistros = daoV.filtrarDia(fec1).size();
 
                 for (int i = 0; i < numRegistros; i++) {
@@ -186,6 +186,8 @@ public class controladorHVentas implements ActionListener,MouseListener{
                 String cod_emp = (String)vistaHV.tblventas.getValueAt(vistaHV.tblventas.getSelectedRow(),3);
                 String cod_cli = (String)vistaHV.tblventas.getValueAt(vistaHV.tblventas.getSelectedRow(),4);
                 String nom_cli="";
+                
+                modeloE = new Empleado();
                 
                 modeloE = daoE.buscarxDni(cod_emp);
                 if(cod_cli.equals("1")){nom_cli="Publico en General";}

@@ -190,7 +190,8 @@ public class controladorPrincipal implements ActionListener{
         if(e.getSource() == vistaCa.btniniciar){
             String rpta = daoCa.insertarNCaja();
             codC = daoCa.codigoCaja();
-            daoCa.actualizarCI(codC,Double.parseDouble(vistaCa.txtcajainicial.getText()));
+            double imp = Double.parseDouble(vistaCa.txtcajainicial.getText());
+            daoCa.actualizarCI(codC,imp);
             JOptionPane.showMessageDialog(vistaCa, rpta);
             vistaCa.dispose();
         }
