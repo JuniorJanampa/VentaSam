@@ -6,7 +6,6 @@
 package vistas;
 
 import com.itextpdf.text.DocumentException;
-import impresora.ImprimirTicket;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

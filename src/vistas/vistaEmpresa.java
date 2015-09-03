@@ -16,6 +16,7 @@ public class vistaEmpresa extends javax.swing.JFrame {
      */
     public vistaEmpresa() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -42,7 +43,8 @@ public class vistaEmpresa extends javax.swing.JFrame {
         btnguardar = new javax.swing.JButton();
         btnsalir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setText("Nombre de la Empresa:");
 

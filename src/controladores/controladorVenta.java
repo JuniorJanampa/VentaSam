@@ -10,7 +10,7 @@ import DAO.detalleventaDAO;
 import DAO.productoDAO;
 import DAO.ventaDAO;
 import com.itextpdf.text.DocumentException;
-import impresora.ImprimirTicket;
+import impresora.ImpTicket;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -279,13 +279,13 @@ public class controladorVenta implements ActionListener,KeyListener,MouseListene
                 vistaVV.setLocationRelativeTo(null);
                 vistaVV.setVisible(true);
                
+                ImpTicket impt;
+                impt = new ImpTicket(codV, dnie, fecha, listaDV, totalm, pagm, vuelm);
                 try {
-                     ImprimirTicket impt = new ImprimirTicket();
-                    impt.GenerarTickets(codV, dnie, fecha, listaDV, totalm, pagm, vuelm);
+                    impt.Imprimir();
                 } catch (FileNotFoundException | DocumentException ex) {
                     Logger.getLogger(controladorVenta.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
             }else{JOptionPane.showMessageDialog(vistaVV, "Monto es menor al total");}
 
         }
