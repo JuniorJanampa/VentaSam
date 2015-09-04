@@ -52,8 +52,17 @@ public class vistaHistoricoVentas extends javax.swing.JFrame {
         tblventas = new javax.swing.JTable();
         btntodo = new javax.swing.JButton();
         rbdia = new javax.swing.JRadioButton();
+        rbentre1 = new javax.swing.JRadioButton();
+        lblfiltrar1 = new javax.swing.JLabel();
+        lbly1 = new javax.swing.JLabel();
+        dtfecha3 = new com.toedter.calendar.JDateChooser();
+        dtfecha4 = new com.toedter.calendar.JDateChooser();
+        jLabel7 = new javax.swing.JLabel();
+        btncerrar1 = new javax.swing.JButton();
+        btnfiltrar1 = new javax.swing.JButton();
+        btntodo1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         rbgrupo.add(rbentre);
         rbentre.setText("Filtrar entre 2 fechas");
@@ -178,21 +187,21 @@ public class vistaHistoricoVentas extends javax.swing.JFrame {
         rbgrupo.add(rbdia);
         rbdia.setText("Filtrar por Día");
 
-        rbgrupo.add(rbentre);
-        rbentre.setText("Filtrar entre 2 fechas");
+        rbgrupo.add(rbentre1);
+        rbentre1.setText("Filtrar entre 2 fechas");
 
-        lblfiltrar.setText("Filtrar Día: ");
+        lblfiltrar1.setText("Filtrar Día: ");
 
-        lbly.setText("hasta");
+        lbly1.setText("hasta");
 
-        jLabel4.setText("DETALLE DE VENTA");
+        jLabel7.setText("DETALLE DE VENTA");
 
-        btncerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete.png"))); // NOI18N
-        btncerrar.setText("Cerrar");
+        btncerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete.png"))); // NOI18N
+        btncerrar1.setText("Cerrar");
 
-        btnfiltrar.setText("Filtrar");
+        btnfiltrar1.setText("Filtrar");
 
-        btntodo.setText("Todo el Historial");
+        btntodo1.setText("Todo el Historial");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -310,23 +319,32 @@ public class vistaHistoricoVentas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btncerrar;
+    public javax.swing.JButton btncerrar1;
     public javax.swing.JButton btnfiltrar;
+    public javax.swing.JButton btnfiltrar1;
     public javax.swing.JButton btntodo;
+    public javax.swing.JButton btntodo1;
     public com.toedter.calendar.JDateChooser dtfecha1;
     public com.toedter.calendar.JDateChooser dtfecha2;
+    public com.toedter.calendar.JDateChooser dtfecha3;
+    public com.toedter.calendar.JDateChooser dtfecha4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JLabel lblfiltrar;
+    public javax.swing.JLabel lblfiltrar1;
     public javax.swing.JLabel lbly;
+    public javax.swing.JLabel lbly1;
     private javax.swing.JPanel panelhistorico;
     public javax.swing.JRadioButton rbdia;
     public javax.swing.JRadioButton rbentre;
+    public javax.swing.JRadioButton rbentre1;
     private javax.swing.ButtonGroup rbgrupo;
     public javax.swing.JTable tbldetalle;
     public javax.swing.JTable tblventas;

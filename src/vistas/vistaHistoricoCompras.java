@@ -53,7 +53,7 @@ public class vistaHistoricoCompras extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txttotal = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         panelhistorico.setBorder(javax.swing.BorderFactory.createTitledBorder("Histórico"));
 

@@ -6,7 +6,7 @@
     </Component>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -381,7 +381,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="rbentre">
+    <Component class="javax.swing.JRadioButton" name="rbentre1">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="rbgrupo"/>
@@ -392,7 +392,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblfiltrar">
+    <Component class="javax.swing.JLabel" name="lblfiltrar1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Filtrar D&#xed;a: "/>
       </Properties>
@@ -400,7 +400,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbly">
+    <Component class="javax.swing.JLabel" name="lbly1">
       <Properties>
         <Property name="text" type="java.lang.String" value="hasta"/>
       </Properties>
@@ -408,22 +408,22 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="dtfecha1">
+    <Component class="com.toedter.calendar.JDateChooser" name="dtfecha3">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="dtfecha2">
+    <Component class="com.toedter.calendar.JDateChooser" name="dtfecha4">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="text" type="java.lang.String" value="DETALLE DE VENTA"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btncerrar">
+    <Component class="javax.swing.JButton" name="btncerrar1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagenes/delete.png"/>
@@ -434,7 +434,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnfiltrar">
+    <Component class="javax.swing.JButton" name="btnfiltrar1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Filtrar"/>
       </Properties>
@@ -442,7 +442,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btntodo">
+    <Component class="javax.swing.JButton" name="btntodo1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Todo el Historial"/>
       </Properties>

@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/edson/Documentos/Sistema%20Ventas/VentaScam/src/vistas/vistaEmpresa.java</file>
-            <file>file:/home/edson/Documentos/Sistema%20Ventas/VentaScam/src/controladores/controladorEmpleadoNM.java</file>
-            <file>file:/home/edson/Documentos/Sistema%20Ventas/VentaScam/src/DAO/empleadoDAO.java</file>
-            <file>file:/home/edson/Documentos/Sistema%20Ventas/VentaScam/src/controladores/controladorPrincipal.java</file>
-            <file>file:/home/edson/Documentos/Sistema%20Ventas/VentaScam/src/controladores/controladorEmpresa.java</file>
-            <file>file:/home/edson/Documentos/Sistema%20Ventas/VentaScam/src/vistas/vistaPrincipal.java</file>
-            <file>file:/home/edson/Documentos/Sistema%20Ventas/VentaScam/src/controladores/controladorLogin.java</file>
+            <file>file:/C:/Users/Jhunior/Desktop/SisVen/src/vistas/vistaMovimientoIventario.java</file>
+            <file>file:/C:/Users/Jhunior/Desktop/SisVen/src/vistas/vistaCajaC.java</file>
+            <file>file:/C:/Users/Jhunior/Desktop/SisVen/src/DAO/proveedoresDAO.java</file>
+            <file>file:/C:/Users/Jhunior/Desktop/SisVen/src/vistas/vistaCajaI.java</file>
+            <file>file:/C:/Users/Jhunior/Desktop/SisVen/src/controladores/controladorPrincipal.java</file>
+            <file>file:/C:/Users/Jhunior/Desktop/SisVen/src/vistas/vistaCajaH.java</file>
+            <file>file:/C:/Users/Jhunior/Desktop/SisVen/src/vistas/vistaCaja.java</file>
+            <file>file:/C:/Users/Jhunior/Desktop/SisVen/src/vistas/vistaPrincipal.java</file>
+            <file>file:/C:/Users/Jhunior/Desktop/SisVen/src/vistas/vistaLogin.java</file>
+            <file>file:/C:/Users/Jhunior/Desktop/SisVen/src/vistas/vistaEmpresa.java</file>
         </group>
     </open-files>
 </project-private>
