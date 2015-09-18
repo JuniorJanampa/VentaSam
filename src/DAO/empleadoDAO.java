@@ -6,6 +6,7 @@
 package DAO;
 import java.sql.*;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import modelos.Empleado;
 /**
  *
@@ -38,6 +39,7 @@ public class empleadoDAO {
             }
         } catch (Exception e) {
             rpta = "No se hizo Registro";
+             JOptionPane.showMessageDialog(null,"ErrorEmpleadoDAO"+ e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return rpta;
     }
@@ -63,6 +65,7 @@ public class empleadoDAO {
                 listarE.add(modeloE);
             }
         } catch (Exception e) {
+             JOptionPane.showMessageDialog(null,"ErrorEmpleadoDAO"+ e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return listarE;
     }
@@ -83,6 +86,7 @@ public class empleadoDAO {
             filasAfectadas = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(""+e);
+             JOptionPane.showMessageDialog(null,"ErrorEmpleadoDAO"+ e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return filasAfectadas;
     }
@@ -95,6 +99,7 @@ public class empleadoDAO {
             ps.setString(1,dni);
             filasAfectadas = ps.executeUpdate();
         } catch (Exception e) {
+             JOptionPane.showMessageDialog(null,"ErrorEmpleadoDAO"+ e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return filasAfectadas;
     }
@@ -119,6 +124,7 @@ public class empleadoDAO {
                 modeloE.setRol(rs.getString(9));
             }
         } catch (Exception e) {
+             JOptionPane.showMessageDialog(null,"ErrorEmpleadoDAO"+ e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return modeloE;
     }
@@ -161,6 +167,7 @@ public class empleadoDAO {
             }
         } catch (Exception e) {
             rpta = "No se puedo crear COntraseña";
+             JOptionPane.showMessageDialog(null,"ErrorEmpleadoDAO"+ e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return rpta;
     }
@@ -168,7 +175,7 @@ public class empleadoDAO {
         Empleado modeloE = new Empleado();
         try {
             Connection accesoBD = conec.getConexion();
-            PreparedStatement ps = accesoBD.prepareStatement("SELECT *FROM empleado WHERE DNI = 1");
+            PreparedStatement ps = accesoBD.prepareStatement("SELECT * FROM empleado WHERE DNI = '1234'");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 modeloE.setDni(rs.getString(1));
@@ -182,6 +189,7 @@ public class empleadoDAO {
                 modeloE.setRol(rs.getString(9));
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"ErrorEmpleadoDAO"+ e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return modeloE;
     }
@@ -203,6 +211,7 @@ public class empleadoDAO {
             filasAfectadas = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(""+e);
+             JOptionPane.showMessageDialog(null,"ErrorEmpleadoDAO"+ e,"Error",JOptionPane.ERROR_MESSAGE);
         }
         return filasAfectadas;
     }

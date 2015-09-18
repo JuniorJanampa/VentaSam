@@ -33,8 +33,13 @@ import vistas.vistaProductosNM;
 public class controladorProductoNM implements ActionListener{
     vistaProductosNM vistaProdNM = new vistaProductosNM();
     productoDAO daoProd = new productoDAO();
+
     Productos modeloProd;
     String razons;
+
+    double  stok,pcom,pven;
+    int unm;
+
     String[] cod_prov;
     FileInputStream fis;
     InputStream isaux = null;
@@ -145,6 +150,7 @@ public class controladorProductoNM implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vistaProdNM.btnregistrar){
+
             modeloProd = new Productos();
             modeloProd.setNombre(vistaProdNM.txtnombre.getText());
             modeloProd.setCategoria(vistaProdNM.txtCategoria.getText());
@@ -155,7 +161,6 @@ public class controladorProductoNM implements ActionListener{
             razons = String.valueOf(vistaProdNM.cmbprov.getSelectedItem());
             modeloProd.setCod_prov(obtenerCOD(razons));
             modeloProd.setImagen(fis);
-            System.out.println(fis);
             String rpta = daoProd.insertarProducto(modeloProd);
             JOptionPane.showMessageDialog(vistaProdNM, rpta);
             salir();
@@ -188,6 +193,7 @@ public class controladorProductoNM implements ActionListener{
             
         }
         if(e.getSource() == vistaProdNM.btnguardarcambio){
+
             modeloProd = new Productos();
             modeloProd.setCodigo(vistaProdNM.txtcodigo.getText());
             modeloProd.setNombre(vistaProdNM.txtnombre.getText());

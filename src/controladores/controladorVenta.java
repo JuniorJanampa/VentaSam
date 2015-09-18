@@ -67,6 +67,7 @@ public class controladorVenta implements ActionListener,KeyListener,MouseListene
     
     double total;
     //String pagm, vuelm, totalm;
+    double aux=0.0;
     
     DefaultTableModel modeloTV = new DefaultTableModel(){
             @Override
@@ -197,19 +198,21 @@ public class controladorVenta implements ActionListener,KeyListener,MouseListene
         modeloDV = new Detalleventa();
         modeloDV.setCodigo(vistaVA.txtnombre.getText());
         modeloDV.setCod_prod(modeloProd.getCodigo());
-        modeloDV.setCantidad(Integer.parseInt(vistaVA.txtcant.getText()));
+        modeloDV.setCantidad(Double.parseDouble(vistaVA.txtcant.getText()));
+        
         int un_m = unm(modeloProd.getUnidad_medida());
         modeloDV.setUnd_med(un_m);
         modeloDV.setP_base(Double.parseDouble(vistaVA.txtprecio.getText()));
-        double importe = Integer.parseInt(vistaVA.txtcant.getText())*Double.parseDouble(vistaVA.txtprecio.getText());
+        double importe = Double.parseDouble(vistaVA.txtcant.getText())*Double.parseDouble(vistaVA.txtprecio.getText());
         modeloDV.setP_cant(importe);
+        
             
         Object[] columna = new Object[4];
         columna[0] = modeloDV.getCantidad();
         columna[1] = modeloProd.getNombre();
         columna[2] = modeloDV.getP_base();
         columna[3] = modeloDV.getP_cant();
-        
+               
         total = total + importe;
         
         modeloTV.addRow(columna);
@@ -296,7 +299,7 @@ public class controladorVenta implements ActionListener,KeyListener,MouseListene
 
                     for (int i = 0; i < tam; i++) {
                         String codProd = listaDV.get(i).getCod_prod();
-                        int cant = listaDV.get(i).getCantidad();
+                        double cant = listaDV.get(i).getCantidad();
                         int unm = listaDV.get(i).getUnd_med();
                         double p_base = listaDV.get(i).getP_base();
                         double importe = listaDV.get(i).getP_cant();

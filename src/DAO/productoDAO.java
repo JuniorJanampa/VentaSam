@@ -20,15 +20,17 @@ public class productoDAO {
         conec = new conexion();
     }
     
+
     public String insertarProducto(Productos modeloProd){
         String rpta = null;
         try {
             Connection accesoBD = conec.getConexion();
+
             CallableStatement cs = accesoBD.prepareCall("{call prod_ins(?,?,?,?,?,?,?,?)}");
             cs.setString(1, modeloProd.getNombre());
             cs.setString(2, modeloProd.getCategoria());
             cs.setDouble(3, modeloProd.getPrecio_compra());
-            cs.setInt(4, modeloProd.getStok());
+            cs.setDouble(4, modeloProd.getStok());
             cs.setInt(5, modeloProd.getUnidad_med());
             cs.setDouble(6, modeloProd.getPrecio_venta());
             cs.setString(7, modeloProd.getCod_prov());
@@ -57,7 +59,7 @@ public class productoDAO {
                 modeloProd.setNombre(rs.getString(2));
                 modeloProd.setCategoria(rs.getString(3));
                 modeloProd.setPrecio_compra(rs.getDouble(4));
-                modeloProd.setStok(rs.getInt(5));
+                modeloProd.setStok(rs.getDouble(5));
                 modeloProd.setUnidad_medida(rs.getString(6));
                 modeloProd.setPrecio_venta(rs.getDouble(7));
                 modeloProd.setCod_prov(rs.getString(8));
@@ -70,6 +72,7 @@ public class productoDAO {
         return listarC;
     }
     
+
     public String modificarProductoC(Productos modeloProd){
         String rpta=null;
         try {
@@ -79,7 +82,7 @@ public class productoDAO {
             cs.setString(2, modeloProd.getNombre());
             cs.setString(3, modeloProd.getCategoria());
             cs.setDouble(4, modeloProd.getPrecio_compra());
-            cs.setInt(5, modeloProd.getStok());
+            cs.setDouble(5, modeloProd.getStok());
             cs.setInt(6, modeloProd.getUnidad_med());
             cs.setDouble(7, modeloProd.getPrecio_venta());
             cs.setString(8, modeloProd.getCod_prov());
@@ -104,7 +107,7 @@ public class productoDAO {
             cs.setString(2, modeloProd.getNombre());
             cs.setString(3, modeloProd.getCategoria());
             cs.setDouble(4, modeloProd.getPrecio_compra());
-            cs.setInt(5, modeloProd.getStok());
+            cs.setDouble(5, modeloProd.getStok());
             cs.setInt(6, modeloProd.getUnidad_med());
             cs.setDouble(7, modeloProd.getPrecio_venta());
             cs.setString(8, modeloProd.getCod_prov());

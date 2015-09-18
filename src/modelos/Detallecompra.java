@@ -13,7 +13,7 @@ public class Detallecompra {
     private String codigo;
     private String cod_com;
     private String cod_prod;
-    private int cant;
+    private double cant;
     private int unm;
     private String un_m;
     private double p_com;
@@ -70,11 +70,11 @@ public class Detallecompra {
         this.cod_prod = cod_prod;
     }
 
-    public int getCant() {
+    public double getCant() {
         return cant;
     }
 
-    public void setCant(int cant) {
+    public void setCant(double cant) {
         this.cant = cant;
     }
 

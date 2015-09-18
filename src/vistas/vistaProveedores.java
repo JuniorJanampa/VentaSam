@@ -48,6 +48,7 @@ public class vistaProveedores extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Proveedores-SCAMVentas1.1");
+        setResizable(false);
 
         jLabel1.setText("Por favor ingrese el RUC de la Empresa ");
 

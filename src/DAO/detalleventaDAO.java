@@ -22,14 +22,14 @@ public class detalleventaDAO {
         conec = new conexion();
     }
     
-    public String insertarDetalle(String cod_ven,String cod_prod,int cant,int unm,double p_base, double p_cant){
+    public String insertarDetalle(String cod_ven,String cod_prod,double cant,int unm,double p_base, double p_cant){
         String rpta="";
         try {
             Connection accesoBD = conec.getConexion();
             CallableStatement cs = accesoBD.prepareCall("{call detv_ins(?,?,?,?,?,?)}");
             cs.setString(1, cod_ven);
             cs.setString(2, cod_prod);
-            cs.setInt(3, cant);
+            cs.setDouble(3, cant);
             cs.setInt(4, unm);
             cs.setDouble(5, p_base);
             cs.setDouble(6, p_cant);

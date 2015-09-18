@@ -202,6 +202,9 @@ public class controladorEmpleado implements ActionListener,KeyListener,MouseList
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getClickCount() == 2){
+            try {
+                
+         
             String dni = (String) vistaE.tblmostrarclientes.getValueAt(vistaE.tblmostrarclientes.getSelectedRow(), 0);
             modeloE = daoE.buscarxDni(dni);
             vistaEmpleadosNM vistaENM = new vistaEmpleadosNM();
@@ -209,13 +212,18 @@ public class controladorEmpleado implements ActionListener,KeyListener,MouseList
             vistaENM.lbltitulo.setText("EMPLEADO");
             vistaENM.btnregistrar.setVisible(false);
             vistaENM.btnguardarcambio.setEnabled(false);
-            if (!modeloE.getPas().equals("")){
+           if (modeloE.getPas().equals("")){
                     vistaENM.btnccon.setText("Modificar Contraseña");
-            }
+            } 
+            
             controladorENM.inicializarEmpleadoNM(modeloE, false);
             vistaENM.setLocationRelativeTo(null);
             vistaENM.setVisible(true);
             vistaE.dispose();
+              } catch (Exception ex) {
+                  JOptionPane.showMessageDialog(null,"Error: Existe algún campo vació, se recomienda eliminar"
+                          + "el registro del empleado y rellenar todos los campos. \n "+ ex,"Error Modificar",JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 

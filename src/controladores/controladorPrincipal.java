@@ -79,8 +79,7 @@ public class controladorPrincipal implements ActionListener{
     
     public void inicio(){
         iniciarCaja();
-        
-        
+              
     }
     
     public void iniciarCaja(){

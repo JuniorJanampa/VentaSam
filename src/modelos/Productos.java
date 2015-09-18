@@ -5,8 +5,10 @@
  */
 package modelos;
 
+
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.awt.Image;
 
 /**
  *
@@ -17,7 +19,7 @@ public class Productos {
     private String nombre;
     private String categoria;
     private double precio_compra;
-    private int stok;
+    private double stok;
     private String unidad_medida;
     private int unidad_med;
     private double precio_venta;
@@ -25,13 +27,13 @@ public class Productos {
     private String razons;
     private FileInputStream imagen;
     private InputStream mimagen;
-    
+
     public Productos(){
         codigo = "";
         nombre = "";
         categoria = "";
         precio_compra = 0.0;
-        stok = 0;
+        stok = 0.0;
         unidad_medida="";
         precio_venta = 0.0;
         cod_prov = "";
@@ -96,11 +98,11 @@ public class Productos {
         this.precio_compra = precio_compra;
     }
 
-    public int getStok() {
+    public double getStok() {
         return stok;
     }
 
-    public void setStok(int stok) {
+    public void setStok(double stok) {
         this.stok = stok;
     }
 
@@ -135,6 +137,5 @@ public class Productos {
     public void setMimagen(InputStream mimagen) {
         this.mimagen = mimagen;
     }
-    
     
 }

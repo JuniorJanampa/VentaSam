@@ -46,6 +46,7 @@ public class vistaProductos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Productos-SCAMVentas1.1");
+        setResizable(false);
 
         jLabel1.setText("Filtrar por Proveedor:");
 
