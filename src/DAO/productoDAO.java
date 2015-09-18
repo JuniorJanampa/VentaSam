@@ -20,18 +20,19 @@ public class productoDAO {
         conec = new conexion();
     }
     
-    public String insertarProducto(String nom,String cate,double pcom,int stok, int unm, double pven,String codp){
+    public String insertarProducto(Productos modeloProd){
         String rpta = null;
         try {
             Connection accesoBD = conec.getConexion();
-            CallableStatement cs = accesoBD.prepareCall("{call prod_ins(?,?,?,?,?,?,?)}");
-            cs.setString(1, nom);
-            cs.setString(2, cate);
-            cs.setDouble(3, pcom);
-            cs.setInt(4, stok);
-            cs.setInt(5, unm);
-            cs.setDouble(6, pven);
-            cs.setString(7, codp);
+            CallableStatement cs = accesoBD.prepareCall("{call prod_ins(?,?,?,?,?,?,?,?)}");
+            cs.setString(1, modeloProd.getNombre());
+            cs.setString(2, modeloProd.getCategoria());
+            cs.setDouble(3, modeloProd.getPrecio_compra());
+            cs.setInt(4, modeloProd.getStok());
+            cs.setInt(5, modeloProd.getUnidad_med());
+            cs.setDouble(6, modeloProd.getPrecio_venta());
+            cs.setString(7, modeloProd.getCod_prov());
+            cs.setBinaryStream(8, modeloProd.getImagen());
             int filasAfectadas = cs.executeUpdate();
             if(filasAfectadas>0){
                 rpta = "Regitro Exitoso";
@@ -61,6 +62,7 @@ public class productoDAO {
                 modeloProd.setPrecio_venta(rs.getDouble(7));
                 modeloProd.setCod_prov(rs.getString(8));
                 modeloProd.setRazons(rs.getString(9));
+                modeloProd.setMimagen(rs.getBinaryStream(10));
                 listarC.add(modeloProd);
             }
         } catch (Exception e) {
@@ -68,19 +70,20 @@ public class productoDAO {
         return listarC;
     }
     
-    public String modificarProducto(String cod,String nom,String cate,double pcom,int stok, int unm,double pven,String codp){
+    public String modificarProductoC(Productos modeloProd){
         String rpta=null;
         try {
             Connection accesoBD = conec.getConexion();
-            CallableStatement cs = accesoBD.prepareCall("{call prod_upd(?,?,?,?,?,?,?,?)}");
-            cs.setString(1, cod);
-            cs.setString(2, nom);
-            cs.setString(3, cate);
-            cs.setDouble(4, pcom);
-            cs.setInt(5, stok);
-            cs.setInt(6, unm);
-            cs.setDouble(7, pven);
-            cs.setString(8, codp);
+            CallableStatement cs = accesoBD.prepareCall("{call prod_updc(?,?,?,?,?,?,?,?,?)}");
+            cs.setString(1, modeloProd.getCodigo());
+            cs.setString(2, modeloProd.getNombre());
+            cs.setString(3, modeloProd.getCategoria());
+            cs.setDouble(4, modeloProd.getPrecio_compra());
+            cs.setInt(5, modeloProd.getStok());
+            cs.setInt(6, modeloProd.getUnidad_med());
+            cs.setDouble(7, modeloProd.getPrecio_venta());
+            cs.setString(8, modeloProd.getCod_prov());
+            cs.setBinaryStream(9, modeloProd.getImagen());
             int filasAfectadas = cs.executeUpdate();
             if(filasAfectadas>0){
                 rpta = "Actuzalizacion Exitosa";
@@ -91,6 +94,31 @@ public class productoDAO {
         }
         return rpta;
     }
+    
+    public String modificarProductoS(Productos modeloProd){
+        String rpta=null;
+        try {
+            Connection accesoBD = conec.getConexion();
+            CallableStatement cs = accesoBD.prepareCall("{call prod_upds(?,?,?,?,?,?,?,?)}");
+            cs.setString(1, modeloProd.getCodigo());
+            cs.setString(2, modeloProd.getNombre());
+            cs.setString(3, modeloProd.getCategoria());
+            cs.setDouble(4, modeloProd.getPrecio_compra());
+            cs.setInt(5, modeloProd.getStok());
+            cs.setInt(6, modeloProd.getUnidad_med());
+            cs.setDouble(7, modeloProd.getPrecio_venta());
+            cs.setString(8, modeloProd.getCod_prov());
+            int filasAfectadas = cs.executeUpdate();
+            if(filasAfectadas>0){
+                rpta = "Actuzalizacion Exitosa";
+            }
+        } catch (Exception e) {
+            rpta = "No hubo actualizacion";
+            System.out.println(""+e);
+        }
+        return rpta;
+    }
+    
     
     public int eliminarProducto(String codprod){
         int filasAfectadas=0;
@@ -123,6 +151,7 @@ public class productoDAO {
                 modeloProd.setPrecio_venta(rs.getDouble(7));
                 modeloProd.setCod_prov(rs.getString(8));
                 modeloProd.setRazons(rs.getString(9));
+                modeloProd.setMimagen(rs.getBinaryStream(10));
             }
         } catch (Exception e) {
         }
@@ -144,6 +173,7 @@ public class productoDAO {
                 modeloProd.setStok(rs.getInt(5));
                 modeloProd.setUnidad_medida(rs.getString(6));
                 modeloProd.setPrecio_venta(rs.getDouble(7));
+                modeloProd.setMimagen(rs.getBinaryStream(8));
             }
         } catch (Exception e) {
         }
@@ -170,6 +200,7 @@ public class productoDAO {
                 modeloProd.setPrecio_venta(rs.getDouble(7));
                 modeloProd.setCod_prov(rs.getString(8));
                 modeloProd.setRazons(rs.getString(9));
+                modeloProd.setMimagen(rs.getBinaryStream(10));
                 listaProd.add(modeloProd);
             }
         } catch (Exception e) {
@@ -195,6 +226,7 @@ public class productoDAO {
                 modeloProd.setPrecio_venta(rs.getDouble(7));
                 modeloProd.setCod_prov(rs.getString(8));
                 modeloProd.setRazons(rs.getString(9));
+                modeloProd.setMimagen(rs.getBinaryStream(10));
                 listaProd.add(modeloProd);
             }
         } catch (Exception e) {

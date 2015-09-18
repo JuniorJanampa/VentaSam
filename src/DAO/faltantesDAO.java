@@ -39,6 +39,7 @@ public class faltantesDAO {
                 modeloProd.setPrecio_venta(rs.getDouble(7));
                 modeloProd.setCod_prov(rs.getString(8));
                 modeloProd.setRazons(rs.getString(9));
+                modeloProd.setMimagen(rs.getBinaryStream(10));
                 listaProd.add(modeloProd);
             }
         } catch (Exception e) {

@@ -12,13 +12,24 @@ import DAO.productoDAO;
 import DAO.proveedoresDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import modelos.Detallecompra;
 import modelos.Productos;
@@ -29,7 +40,7 @@ import vistas.vistaCompras;
  *
  * @author Jhunior
  */
-public class controladorCompra implements ActionListener,MouseListener{
+public class controladorCompra implements ActionListener,MouseListener,KeyListener{
     vistaCompras vistaCo = new vistaCompras();
     compraDAO daoCo = new compraDAO();
     detallecompraDAO daoDCo = new detallecompraDAO();
@@ -73,7 +84,7 @@ public class controladorCompra implements ActionListener,MouseListener{
         this.vistaCoA.btncancelar.addActionListener(this);
         this.vistaCo.tblfal.addMouseListener(this);
         this.vistaCo.tblprod.addMouseListener(this);
-        
+        this.vistaCo.txtfiltrarproducto.addKeyListener(this);
     }
     
     public void inicializarCompra(){
@@ -99,6 +110,39 @@ public class controladorCompra implements ActionListener,MouseListener{
             vistaCo.cmbprov.addItem(daoProv.listarProveedores().get(i).getRazonsocial());
         }
     }
+    
+    public CustomImageIcon mostrarImagen(InputStream is){
+        CustomImageIcon imagen = null;
+        BufferedImage bi;
+        try {
+            bi = ImageIO.read(is);
+            imagen = new CustomImageIcon(bi);
+        } catch (IOException ex) {
+            Logger.getLogger(controladorProductoNM.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return imagen;
+    }
+    
+    public void centrar(JTable tablaD){
+        DefaultTableCellRenderer modelocentrar = new DefaultTableCellRenderer();
+        modelocentrar.setHorizontalAlignment(SwingConstants.CENTER);
+        tablaD.getColumnModel().getColumn(1).setCellRenderer(modelocentrar);
+        tablaD.getColumnModel().getColumn(2).setCellRenderer(modelocentrar);
+        tablaD.getColumnModel().getColumn(3).setCellRenderer(modelocentrar);
+        tablaD.getColumnModel().getColumn(4).setCellRenderer(modelocentrar);
+        tablaD.getColumnModel().getColumn(5).setCellRenderer(modelocentrar);
+        tablaD.getColumnModel().getColumn(6).setCellRenderer(modelocentrar);
+    }
+    
+    public void centrarP(JTable tablaD){
+        DefaultTableCellRenderer modelocentrar = new DefaultTableCellRenderer();
+        modelocentrar.setHorizontalAlignment(SwingConstants.CENTER);
+        tablaD.getColumnModel().getColumn(1).setCellRenderer(modelocentrar);
+        tablaD.getColumnModel().getColumn(2).setCellRenderer(modelocentrar);
+        tablaD.getColumnModel().getColumn(3).setCellRenderer(modelocentrar);
+        tablaD.getColumnModel().getColumn(4).setCellRenderer(modelocentrar);
+        tablaD.getColumnModel().getColumn(5).setCellRenderer(modelocentrar);
+    }
      
     public void TablaVen(JTable tablaD){
         tablaD.setModel(modeloTDC);
@@ -117,7 +161,10 @@ public class controladorCompra implements ActionListener,MouseListener{
             };
         
             vistaCo.tblfal.setModel(modeloTF);
+            vistaCo.tblfal.setDefaultRenderer(Object.class, new IconCellRender());
+            vistaCo.tblfal.setRowHeight(80);
 
+            modeloTF.addColumn("IMAGEN");
             modeloTF.addColumn("COD. PRODUCTO");
             modeloTF.addColumn("NOMBRE");
             modeloTF.addColumn("STOK");
@@ -125,18 +172,24 @@ public class controladorCompra implements ActionListener,MouseListener{
             modeloTF.addColumn("PREC. COM.");
             modeloTF.addColumn("PROVEEDOR");
 
-            Object[] columna = new Object[6];
+            Object[] columna = new Object[7];
 
             int numRegistros = daoF.filtrarProv(razon).size();
 
             for (int i = 0; i < numRegistros; i++) {
-                columna[0] = daoF.filtrarProv(razon).get(i).getCodigo();
-                columna[1] = daoF.filtrarProv(razon).get(i).getNombre();
-                columna[2] = daoF.filtrarProv(razon).get(i).getStok();
-                columna[3] = daoF.filtrarProv(razon).get(i).getUnidad_medida();
-                columna[4] = daoF.filtrarProv(razon).get(i).getPrecio_compra();
-                columna[5] = daoF.filtrarProv(razon).get(i).getRazons();
+                if(daoF.filtrarProv(razon).get(i).getMimagen() == null){
+                    columna[0] = new JLabel(new CustomImageIcon(getClass().getResource("/imagenes/nodisponible.png")));
+                }else{
+                    columna[0] = new JLabel(mostrarImagen(daoF.filtrarProv(razon).get(i).getMimagen()));
+                }
+                columna[1] = daoF.filtrarProv(razon).get(i).getCodigo();
+                columna[2] = daoF.filtrarProv(razon).get(i).getNombre();
+                columna[3] = daoF.filtrarProv(razon).get(i).getStok();
+                columna[4] = daoF.filtrarProv(razon).get(i).getUnidad_medida();
+                columna[5] = daoF.filtrarProv(razon).get(i).getPrecio_compra();
+                columna[6] = daoF.filtrarProv(razon).get(i).getRazons();
                 modeloTF.addRow(columna);
+                centrar(vistaCo.tblfal);
             }
     }
     
@@ -183,7 +236,6 @@ public class controladorCompra implements ActionListener,MouseListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vistaCo.cmbprov){
             String razon = String.valueOf(vistaCo.cmbprov.getSelectedItem());
-            System.out.println(razon);
             /*TABLA PRODUCTOS*/
             vistaCo.tblprod.removeAll();
             DefaultTableModel  modeloTP = new DefaultTableModel(){
@@ -193,24 +245,33 @@ public class controladorCompra implements ActionListener,MouseListener{
                 }
             };
             vistaCo.tblprod.setModel(modeloTP);
+            vistaCo.tblprod.setDefaultRenderer(Object.class, new IconCellRender());
+            vistaCo.tblprod.setRowHeight(80);
 
+            modeloTP.addColumn("IMAGEN");
             modeloTP.addColumn("COD. PRODUCTO");
             modeloTP.addColumn("NOMBRE");
             modeloTP.addColumn("STOK");
             modeloTP.addColumn("UND.MED.");
             modeloTP.addColumn("PROVEEDOR");
     
-            Object[] columna = new Object[5];
+            Object[] columna = new Object[6];
 
             int numRegistros = daoProd.buscarProdp(razon).size();
 
             for (int i = 0; i < numRegistros; i++) {
-                columna[0] = daoProd.buscarProdp(razon).get(i).getCodigo();
-                columna[1] = daoProd.buscarProdp(razon).get(i).getNombre();
-                columna[2] = daoProd.buscarProdp(razon).get(i).getStok();
-                columna[3] = daoProd.buscarProdp(razon).get(i).getUnidad_medida();
-                columna[4] = daoProd.buscarProdp(razon).get(i).getRazons();
+                if(daoProd.listarProductos().get(i).getMimagen() == null){
+                    columna[0] = new JLabel(new CustomImageIcon(getClass().getResource("/imagenes/nodisponible.png")));
+                }else{
+                    columna[0] = new JLabel(mostrarImagen(daoProd.listarProductos().get(i).getMimagen()));
+                }
+                columna[1] = daoProd.buscarProdp(razon).get(i).getCodigo();
+                columna[2] = daoProd.buscarProdp(razon).get(i).getNombre();
+                columna[3] = daoProd.buscarProdp(razon).get(i).getStok();
+                columna[4] = daoProd.buscarProdp(razon).get(i).getUnidad_medida();
+                columna[5] = daoProd.buscarProdp(razon).get(i).getRazons();
                 modeloTP.addRow(columna);
+                centrarP(vistaCo.tblprod);
             }
             
             /*TABLA FALTANTES*/
@@ -298,7 +359,7 @@ public class controladorCompra implements ActionListener,MouseListener{
     public void mouseClicked(MouseEvent e) {
         if(e.getSource() == vistaCo.tblprod){
             if(e.getClickCount() == 2){
-                String codprod = (String)vistaCo.tblprod.getValueAt(vistaCo.tblprod.getSelectedRow(),0);
+                String codprod = (String)vistaCo.tblprod.getValueAt(vistaCo.tblprod.getSelectedRow(),1);
                 
                 modeloProd = new Productos();
                 modeloProd = daoProd.buscarP(codprod);
@@ -317,7 +378,7 @@ public class controladorCompra implements ActionListener,MouseListener{
         }
         if(e.getSource() == vistaCo.tblfal){
             if(e.getClickCount() == 2){
-                String codprod = (String)vistaCo.tblfal.getValueAt(vistaCo.tblfal.getSelectedRow(),0);
+                String codprod = (String)vistaCo.tblfal.getValueAt(vistaCo.tblfal.getSelectedRow(),1);
                 
                 modeloProd = new Productos();
                 modeloProd = daoProd.buscarP(codprod);
@@ -350,6 +411,58 @@ public class controladorCompra implements ActionListener,MouseListener{
 
     @Override
     public void mouseExited(MouseEvent e) {
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if(e.getSource() == vistaCo.txtfiltrarproducto){
+            String nombre = vistaCo.txtfiltrarproducto.getText();
+            DefaultTableModel  modeloT = new DefaultTableModel(){
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    //all cells false
+                return false;
+                }
+            };
+            vistaCo.tblprod.setModel(modeloT);
+            vistaCo.tblprod.setDefaultRenderer(Object.class, new IconCellRender());
+
+            modeloT.addColumn("IMAGEN");
+            modeloT.addColumn("COD. PRODUCTO");
+            modeloT.addColumn("NOMBRE");
+            modeloT.addColumn("CATEGORIA");
+            modeloT.addColumn("STOK");
+            modeloT.addColumn("UND.MED.");
+            modeloT.addColumn("PRECIO");
+
+            Object[] columna = new Object[7];
+
+            int numRegistros = daoProd.buscarProdn(nombre).size();
+
+            for (int i = 0; i < numRegistros; i++) {
+                if(daoProd.buscarProdn(nombre).get(i).getMimagen() == null){
+                    columna[0] = new JLabel(new CustomImageIcon(getClass().getResource("/imagenes/nodisponible.png")));
+                }else{
+                    columna[0] = new JLabel(mostrarImagen(daoProd.buscarProdn(nombre).get(i).getMimagen()));
+                }
+                columna[1] = daoProd.buscarProdn(nombre).get(i).getCodigo();
+                columna[2] = daoProd.buscarProdn(nombre).get(i).getNombre();
+                columna[3] = daoProd.buscarProdn(nombre).get(i).getCategoria();
+                columna[4] = daoProd.buscarProdn(nombre).get(i).getStok();
+                columna[5] = daoProd.buscarProdn(nombre).get(i).getUnidad_medida();
+                columna[6] = daoProd.buscarProdn(nombre).get(i).getPrecio_venta();
+                modeloT.addRow(columna);
+                centrar(vistaCo.tblprod);
+            }
+        }
     }
     
     

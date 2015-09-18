@@ -85,7 +85,7 @@ public class controladorMovimiento implements ActionListener{
         modeloTE.addColumn("COD. COMP.");
         modeloTE.addColumn("COD. PROD.");
         modeloTE.addColumn("NOM. PROD.");
-        modeloTE.addColumn("TOTAL SALIDA");
+        modeloTE.addColumn("TOTAL ENTRADA");
         
         Object[] columnaE = new Object[6];
         

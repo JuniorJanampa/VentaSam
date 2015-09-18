@@ -17,15 +17,22 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Date;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import modelos.Cliente;
 import modelos.Detalleventa;
@@ -102,6 +109,29 @@ public class controladorVenta implements ActionListener,KeyListener,MouseListene
         vistaV.txtfecha.setEditable(false);
     }
     
+    public CustomImageIcon mostrarImagen(InputStream is){
+        CustomImageIcon imagen = null;
+        BufferedImage bi;
+        try {
+            bi = ImageIO.read(is);
+            imagen = new CustomImageIcon(bi);
+        } catch (IOException ex) {
+            Logger.getLogger(controladorProductoNM.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return imagen;
+    }
+    
+    public void centrar(JTable tablaD){
+        DefaultTableCellRenderer modelocentrar = new DefaultTableCellRenderer();
+        modelocentrar.setHorizontalAlignment(SwingConstants.CENTER);
+        tablaD.getColumnModel().getColumn(1).setCellRenderer(modelocentrar);
+        tablaD.getColumnModel().getColumn(2).setCellRenderer(modelocentrar);
+        tablaD.getColumnModel().getColumn(3).setCellRenderer(modelocentrar);
+        tablaD.getColumnModel().getColumn(4).setCellRenderer(modelocentrar);
+        tablaD.getColumnModel().getColumn(5).setCellRenderer(modelocentrar);
+        tablaD.getColumnModel().getColumn(6).setCellRenderer(modelocentrar);
+    }
+    
     public void TablaVen(JTable tablaD){
         tablaD.setModel(modeloTV);
         modeloTV.addColumn("CANT.");
@@ -120,7 +150,10 @@ public class controladorVenta implements ActionListener,KeyListener,MouseListene
             }
         };
         tablaD.setModel(modeloT);
+        tablaD.setDefaultRenderer(Object.class, new IconCellRender());
+        tablaD.setRowHeight(80);
         
+        modeloT.addColumn("IMAGEN");
         modeloT.addColumn("COD. PRODUCTO");
         modeloT.addColumn("NOMBRE");
         modeloT.addColumn("CATEGORIA");
@@ -128,18 +161,24 @@ public class controladorVenta implements ActionListener,KeyListener,MouseListene
         modeloT.addColumn("UND.MED.");
         modeloT.addColumn("PRECIO");
         
-        Object[] columna = new Object[6];
+        Object[] columna = new Object[7];
 
         int numRegistros = daoProd.listarProductos().size();
 
         for (int i = 0; i < numRegistros; i++) {
-            columna[0] = daoProd.listarProductos().get(i).getCodigo();
-            columna[1] = daoProd.listarProductos().get(i).getNombre();
-            columna[2] = daoProd.listarProductos().get(i).getCategoria();
-            columna[3] = daoProd.listarProductos().get(i).getStok();
-            columna[4] = daoProd.listarProductos().get(i).getUnidad_medida();
-            columna[5] = daoProd.listarProductos().get(i).getPrecio_venta();
+            if(daoProd.listarProductos().get(i).getMimagen() == null){
+                columna[0] = new JLabel(new CustomImageIcon(getClass().getResource("/imagenes/nodisponible.png")));
+            }else{
+                columna[0] = new JLabel(mostrarImagen(daoProd.listarProductos().get(i).getMimagen()));
+            }
+            columna[1] = daoProd.listarProductos().get(i).getCodigo();
+            columna[2] = daoProd.listarProductos().get(i).getNombre();
+            columna[3] = daoProd.listarProductos().get(i).getCategoria();
+            columna[4] = daoProd.listarProductos().get(i).getStok();
+            columna[5] = daoProd.listarProductos().get(i).getUnidad_medida();
+            columna[6] = daoProd.listarProductos().get(i).getPrecio_venta();
             modeloT.addRow(columna);
+            centrar(tablaD);
         }
     }
     
@@ -306,7 +345,7 @@ public class controladorVenta implements ActionListener,KeyListener,MouseListene
     public void mouseClicked(MouseEvent e) {
         if(e.getSource() == vistaV.tblprod){
             if(e.getClickCount() == 2){
-                String codprod = (String)vistaV.tblprod.getValueAt(vistaV.tblprod.getSelectedRow(),0);
+                String codprod = (String)vistaV.tblprod.getValueAt(vistaV.tblprod.getSelectedRow(),1);
                 
                 modeloProd = new Productos();
                 modeloProd = daoProd.buscarP(codprod);
@@ -366,7 +405,9 @@ public class controladorVenta implements ActionListener,KeyListener,MouseListene
                 }
             };
             vistaV.tblprod.setModel(modeloT);
+            vistaV.tblprod.setDefaultRenderer(Object.class, new IconCellRender());
 
+            modeloT.addColumn("IMAGEN");
             modeloT.addColumn("COD. PRODUCTO");
             modeloT.addColumn("NOMBRE");
             modeloT.addColumn("CATEGORIA");
@@ -374,18 +415,24 @@ public class controladorVenta implements ActionListener,KeyListener,MouseListene
             modeloT.addColumn("UND.MED.");
             modeloT.addColumn("PRECIO");
 
-            Object[] columna = new Object[6];
+            Object[] columna = new Object[7];
 
             int numRegistros = daoProd.buscarProdn(nombre).size();
 
             for (int i = 0; i < numRegistros; i++) {
-                columna[0] = daoProd.buscarProdn(nombre).get(i).getCodigo();
-                columna[1] = daoProd.buscarProdn(nombre).get(i).getNombre();
-                columna[2] = daoProd.buscarProdn(nombre).get(i).getCategoria();
-                columna[3] = daoProd.buscarProdn(nombre).get(i).getStok();
-                columna[4] = daoProd.buscarProdn(nombre).get(i).getUnidad_medida();
-                columna[5] = daoProd.buscarProdn(nombre).get(i).getPrecio_venta();
+                if(daoProd.buscarProdn(nombre).get(i).getMimagen() == null){
+                    columna[0] = new JLabel(new CustomImageIcon(getClass().getResource("/imagenes/nodisponible.png")));
+                }else{
+                    columna[0] = new JLabel(mostrarImagen(daoProd.buscarProdn(nombre).get(i).getMimagen()));
+                }
+                columna[1] = daoProd.buscarProdn(nombre).get(i).getCodigo();
+                columna[2] = daoProd.buscarProdn(nombre).get(i).getNombre();
+                columna[3] = daoProd.buscarProdn(nombre).get(i).getCategoria();
+                columna[4] = daoProd.buscarProdn(nombre).get(i).getStok();
+                columna[5] = daoProd.buscarProdn(nombre).get(i).getUnidad_medida();
+                columna[6] = daoProd.buscarProdn(nombre).get(i).getPrecio_venta();
                 modeloT.addRow(columna);
+                centrar(vistaV.tblprod);
             }
         }
     }
