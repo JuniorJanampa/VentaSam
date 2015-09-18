@@ -35,6 +35,7 @@ public class ventaDAO {
             rpta = "Registro Fallido";
             System.out.println(""+e);
         }
+        conec.desconectar();
         return rpta;
     }
     
@@ -57,6 +58,7 @@ public class ventaDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listaV;
     }
     
@@ -72,6 +74,7 @@ public class ventaDAO {
         } catch (Exception e) {
             System.out.println(e);
         }
+        conec.desconectar();
         return cod;
     }
     
@@ -95,6 +98,7 @@ public class ventaDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listaV;
     }
         
@@ -119,6 +123,7 @@ public class ventaDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listaV;
     }
 }

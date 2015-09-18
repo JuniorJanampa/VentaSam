@@ -40,6 +40,7 @@ public class movimientoDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listaSal;
     }
     
@@ -63,6 +64,7 @@ public class movimientoDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listaSal;
     }
     
@@ -87,6 +89,7 @@ public class movimientoDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listaSal;
     }
     
@@ -112,6 +115,7 @@ public class movimientoDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listaSal;
     }
     
@@ -136,6 +140,7 @@ public class movimientoDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listaSal;
     }
     
@@ -161,6 +166,7 @@ public class movimientoDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listaSal;
     }
 }

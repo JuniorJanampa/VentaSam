@@ -41,6 +41,7 @@ public class empleadoDAO {
             rpta = "No se hizo Registro";
              JOptionPane.showMessageDialog(null,"ErrorEmpleadoDAO"+ e,"Error",JOptionPane.ERROR_MESSAGE);
         }
+        conec.desconectar();
         return rpta;
     }
     
@@ -67,6 +68,7 @@ public class empleadoDAO {
         } catch (Exception e) {
              JOptionPane.showMessageDialog(null,"ErrorEmpleadoDAO"+ e,"Error",JOptionPane.ERROR_MESSAGE);
         }
+        conec.desconectar();
         return listarE;
     }
     
@@ -88,6 +90,7 @@ public class empleadoDAO {
             System.out.println(""+e);
              JOptionPane.showMessageDialog(null,"ErrorEmpleadoDAO"+ e,"Error",JOptionPane.ERROR_MESSAGE);
         }
+        conec.desconectar();
         return filasAfectadas;
     }
     
@@ -101,6 +104,7 @@ public class empleadoDAO {
         } catch (Exception e) {
              JOptionPane.showMessageDialog(null,"ErrorEmpleadoDAO"+ e,"Error",JOptionPane.ERROR_MESSAGE);
         }
+        conec.desconectar();
         return filasAfectadas;
     }
     
@@ -126,6 +130,7 @@ public class empleadoDAO {
         } catch (Exception e) {
              JOptionPane.showMessageDialog(null,"ErrorEmpleadoDAO"+ e,"Error",JOptionPane.ERROR_MESSAGE);
         }
+        conec.desconectar();
         return modeloE;
     }
        
@@ -150,6 +155,7 @@ public class empleadoDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return filtraCliente;
     }
     
@@ -169,6 +175,7 @@ public class empleadoDAO {
             rpta = "No se puedo crear COntraseña";
              JOptionPane.showMessageDialog(null,"ErrorEmpleadoDAO"+ e,"Error",JOptionPane.ERROR_MESSAGE);
         }
+        conec.desconectar();
         return rpta;
     }
    public Empleado VerEmpresa(){
@@ -191,6 +198,7 @@ public class empleadoDAO {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"ErrorEmpleadoDAO"+ e,"Error",JOptionPane.ERROR_MESSAGE);
         }
+        conec.desconectar();
         return modeloE;
     }
     
@@ -213,6 +221,7 @@ public class empleadoDAO {
             System.out.println(""+e);
              JOptionPane.showMessageDialog(null,"ErrorEmpleadoDAO"+ e,"Error",JOptionPane.ERROR_MESSAGE);
         }
+        conec.desconectar();
         return filasAfectadas;
     }
 }

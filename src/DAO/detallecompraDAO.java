@@ -37,6 +37,7 @@ public class detallecompraDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return rpta;
     }
     
@@ -59,6 +60,7 @@ public class detallecompraDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listaDetCom;
     }
 }

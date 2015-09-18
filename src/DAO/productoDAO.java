@@ -43,6 +43,7 @@ public class productoDAO {
             rpta = "No se hizo Registro";
             System.out.println(""+e);
         }
+        conec.desconectar();
         return rpta;
     }
     
@@ -69,6 +70,7 @@ public class productoDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listarC;
     }
     
@@ -95,6 +97,7 @@ public class productoDAO {
             rpta = "No hubo actualizacion";
             System.out.println(""+e);
         }
+        conec.desconectar();
         return rpta;
     }
     
@@ -119,6 +122,7 @@ public class productoDAO {
             rpta = "No hubo actualizacion";
             System.out.println(""+e);
         }
+        conec.desconectar();
         return rpta;
     }
     
@@ -132,6 +136,7 @@ public class productoDAO {
             filasAfectadas = cs.executeUpdate();
         } catch (Exception e) {
         }
+        conec.desconectar();
         return filasAfectadas;
     }
     
@@ -158,6 +163,7 @@ public class productoDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return modeloProd;
     }
     
@@ -180,6 +186,7 @@ public class productoDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return modeloProd;
     }
     
@@ -208,6 +215,7 @@ public class productoDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listaProd;
     }
     public ArrayList<Productos> buscarProdp(String razon){
@@ -234,6 +242,7 @@ public class productoDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listaProd;
     }
 }

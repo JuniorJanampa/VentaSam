@@ -45,6 +45,7 @@ public class faltantesDAO {
         } catch (Exception e) {
             System.out.println(""+e);
         }
+        conec.desconectar();
         return listaProd;
     }
     

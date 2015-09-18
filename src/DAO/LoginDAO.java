@@ -42,7 +42,7 @@ public class LoginDAO {
             
         } catch (Exception e) {
         }
-        conec.desconectar();
+        conec.desconectar(); 
         return login;
     }
     

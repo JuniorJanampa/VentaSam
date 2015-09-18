@@ -155,7 +155,7 @@ public class controladorProductoNM implements ActionListener{
             modeloProd.setNombre(vistaProdNM.txtnombre.getText());
             modeloProd.setCategoria(vistaProdNM.txtCategoria.getText());
             modeloProd.setPrecio_compra(Double.parseDouble(vistaProdNM.txtPreciocompra.getText()));
-            modeloProd.setStok(Integer.parseInt(vistaProdNM.txtstock.getText()));
+            modeloProd.setStok(Double.parseDouble(vistaProdNM.txtstock.getText()));
             modeloProd.setUnidad_med(vistaProdNM.cmbunidadm.getSelectedIndex()+1);
             modeloProd.setPrecio_venta(Double.parseDouble(vistaProdNM.txtPrecioventa.getText()));
             razons = String.valueOf(vistaProdNM.cmbprov.getSelectedItem());
@@ -199,7 +199,7 @@ public class controladorProductoNM implements ActionListener{
             modeloProd.setNombre(vistaProdNM.txtnombre.getText());
             modeloProd.setCategoria(vistaProdNM.txtCategoria.getText());
             modeloProd.setPrecio_compra(Double.parseDouble(vistaProdNM.txtPreciocompra.getText()));
-            modeloProd.setStok(Integer.parseInt(vistaProdNM.txtstock.getText()));
+            modeloProd.setStok(Double.parseDouble(vistaProdNM.txtstock.getText()));
             modeloProd.setUnidad_med(vistaProdNM.cmbunidadm.getSelectedIndex()+1);
             modeloProd.setPrecio_venta(Double.parseDouble(vistaProdNM.txtPrecioventa.getText()));
             razons = String.valueOf(vistaProdNM.cmbprov.getSelectedItem());

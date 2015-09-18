@@ -42,6 +42,7 @@ public class proveedoresDAO {
         } catch (Exception e) {
             System.out.println(e);
         }
+        conec.desconectar();
         return rpta;
     }
     
@@ -69,6 +70,7 @@ public class proveedoresDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listaProv;
     }
     
@@ -91,6 +93,7 @@ public class proveedoresDAO {
             filasA = ps.executeUpdate();
         } catch (Exception e) {
         }
+        conec.desconectar();
         return filasA;
     }
     
@@ -103,6 +106,7 @@ public class proveedoresDAO {
             filasA = ps.executeUpdate();
         } catch (Exception e) {
         }
+        conec.desconectar();
         return filasA;
     }
     
@@ -130,6 +134,7 @@ public class proveedoresDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return modeloProv;
     }
     
@@ -155,6 +160,7 @@ public class proveedoresDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return modeloProv;
     }
     
@@ -185,6 +191,7 @@ public class proveedoresDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listaProv;
     }
 }

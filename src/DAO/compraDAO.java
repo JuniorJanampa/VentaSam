@@ -34,6 +34,7 @@ public class compraDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return rpta;
     }
     
@@ -56,6 +57,7 @@ public class compraDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listaC;
     }
     
@@ -71,6 +73,7 @@ public class compraDAO {
         } catch (Exception e) {
             System.out.println(e);
         }
+        conec.desconectar();
         return cod;
     }
     
@@ -94,6 +97,7 @@ public class compraDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listaC;
     }
     
@@ -118,6 +122,7 @@ public class compraDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listaC;
     }
 }

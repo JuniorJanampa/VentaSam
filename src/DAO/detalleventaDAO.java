@@ -41,6 +41,7 @@ public class detalleventaDAO {
             rpta = "Registro Fallido";
             System.out.println(""+e);
         }
+        conec.desconectar();
         return rpta;
     }
     
@@ -66,6 +67,7 @@ public class detalleventaDAO {
         } catch (Exception e) {
             System.out.println(""+e);
         }
+        conec.desconectar();
         return listaDetVen;
     }
 }

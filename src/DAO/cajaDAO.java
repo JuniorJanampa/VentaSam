@@ -31,6 +31,7 @@ public class cajaDAO {
         } catch (Exception e) {
             System.out.println(e);
         }
+        conec.desconectar();
         return cod;
     }
     
@@ -48,6 +49,7 @@ public class cajaDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return rpta;
     }
     
@@ -68,7 +70,7 @@ public class cajaDAO {
         } catch (Exception e) {
             System.out.println(e);
         }
-        
+        conec.desconectar();
         return cant_ini;
     }
     
@@ -84,6 +86,7 @@ public class cajaDAO {
         } catch (Exception e) {
             System.out.println(e);
         }
+        conec.desconectar();
         return rpta;
     }
     
@@ -97,6 +100,7 @@ public class cajaDAO {
         } catch (Exception e) {
             System.out.println(e);
         }
+        conec.desconectar();
     }
     
     public double ventasP(String fecha , String dni){
@@ -112,6 +116,7 @@ public class cajaDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return total;
     }
     
@@ -127,6 +132,7 @@ public class cajaDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return total;
     }
         
@@ -142,6 +148,7 @@ public class cajaDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return total;
     }
         public String actualizarCierre(String cod_c,double d_e, double d_s){
@@ -158,6 +165,7 @@ public class cajaDAO {
                 }
             } catch (Exception e) {
             }
+            conec.desconectar();
             return rpta;
         }
         
@@ -177,6 +185,7 @@ public class cajaDAO {
                 }
             } catch (Exception e) {
             }
+            conec.desconectar();
             return modeloCa;
         }
         
@@ -198,6 +207,7 @@ public class cajaDAO {
                 }
             } catch (Exception e) {
             }
+            conec.desconectar();
             return listaCa;
         }
         
@@ -221,6 +231,7 @@ public class cajaDAO {
             } catch (Exception e) {
                 System.out.println(e);
             }
+            conec.desconectar();
             return listaCa;
         }
         
@@ -245,6 +256,7 @@ public class cajaDAO {
             } catch (Exception e) {
                 System.out.println(e);
             }
+            conec.desconectar();
             return listaCa;
         }
         

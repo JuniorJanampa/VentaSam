@@ -38,6 +38,7 @@ public class clienteDAO {
         } catch (Exception e) {
             rpta = "No se hizo Registro";
         }
+        conec.desconectar();
         return rpta;
     }
     
@@ -61,6 +62,7 @@ public class clienteDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return listarC;
     }
     
@@ -81,6 +83,7 @@ public class clienteDAO {
         } catch (Exception e) {
             System.out.println(""+e);
         }
+        conec.desconectar();
         return filasAfectadas;
     }
     
@@ -93,6 +96,7 @@ public class clienteDAO {
             filasAfectadas = ps.executeUpdate();
         } catch (Exception e) {
         }
+        conec.desconectar();
         return filasAfectadas;
     }
     
@@ -115,6 +119,7 @@ public class clienteDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return modeloC;
     }
        
@@ -139,6 +144,7 @@ public class clienteDAO {
             }
         } catch (Exception e) {
         }
+        conec.desconectar();
         return filtraCliente;
     }
 }
