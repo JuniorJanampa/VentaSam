@@ -41,6 +41,7 @@ public class vistaEmpleados extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Empleados-SCAMVentas1.1");
+        setResizable(false);
 
         btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete.png"))); // NOI18N
         btnsalir.setText("Salir");

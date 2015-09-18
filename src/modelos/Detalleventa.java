@@ -13,7 +13,7 @@ public class Detalleventa {
     private String codigo;
     private String cod_ven;
     private String cod_prod;
-    private int cantidad;
+    private double cantidad;
     private String um;
     private int und_med;
     private double p_base;
@@ -23,7 +23,7 @@ public class Detalleventa {
         codigo = "";
         cod_ven = "";
         cod_prod = "";
-        cantidad = 0;
+        cantidad = 0.0;
         und_med = 0;
         p_base = 0.0;
         p_cant = 0.0;
@@ -53,11 +53,11 @@ public class Detalleventa {
         this.cod_prod = cod_prod;
     }
 
-    public int getCantidad() {
+    public double getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
     }
 

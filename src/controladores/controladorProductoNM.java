@@ -22,8 +22,8 @@ public class controladorProductoNM implements ActionListener{
     vistaProductosNM vistaProdNM = new vistaProductosNM();
     productoDAO daoProd = new productoDAO();
     String cod, nom, cate,codp,razons;
-    double pcom,pven;
-    int stok,unm;
+    double  stok,pcom,pven;
+    int unm;
     String[] cod_prov;
     
     public controladorProductoNM(vistaProductosNM vistaProdNM, productoDAO daoProd){
@@ -112,7 +112,7 @@ public class controladorProductoNM implements ActionListener{
             nom = vistaProdNM.txtnombre.getText();
             cate = vistaProdNM.txtCategoria.getText();
             pcom = Double.parseDouble(vistaProdNM.txtPreciocompra.getText());
-            stok = Integer.parseInt(vistaProdNM.txtstock.getText());
+            stok = Double.parseDouble(vistaProdNM.txtstock.getText());
             unm = vistaProdNM.cmbunidadm.getSelectedIndex()+1;
             pven = Double.parseDouble(vistaProdNM.txtPrecioventa.getText());
             razons = String.valueOf(vistaProdNM.cmbprov.getSelectedItem());
@@ -131,7 +131,7 @@ public class controladorProductoNM implements ActionListener{
             nom = vistaProdNM.txtnombre.getText();
             cate = vistaProdNM.txtCategoria.getText();
             pcom = Double.parseDouble(vistaProdNM.txtPreciocompra.getText());
-            stok = Integer.parseInt(vistaProdNM.txtstock.getText());
+            stok = Double.parseDouble(vistaProdNM.txtstock.getText());
             unm = vistaProdNM.cmbunidadm.getSelectedIndex()+1;
             pven = Double.parseDouble(vistaProdNM.txtPrecioventa.getText());
             razons = String.valueOf(vistaProdNM.cmbprov.getSelectedItem());

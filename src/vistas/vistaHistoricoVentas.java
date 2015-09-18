@@ -63,6 +63,9 @@ public class vistaHistoricoVentas extends javax.swing.JFrame {
         btntodo1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Historico Ventas-SCAMVentas1.1");
+        setPreferredSize(new java.awt.Dimension(1157, 618));
+        setResizable(false);
 
         rbgrupo.add(rbentre);
         rbentre.setText("Filtrar entre 2 fechas");
@@ -73,8 +76,10 @@ public class vistaHistoricoVentas extends javax.swing.JFrame {
 
         jLabel4.setText("DETALLE DE VENTA");
 
+        btncerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete.png"))); // NOI18N
         btncerrar.setText("Cerrar");
 
+        btnfiltrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search_database.png"))); // NOI18N
         btnfiltrar.setText("Filtrar");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Histórico Específico"));
@@ -172,8 +177,8 @@ public class vistaHistoricoVentas extends javax.swing.JFrame {
             panelhistoricoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelhistoricoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+                .addContainerGap())
         );
         panelhistoricoLayout.setVerticalGroup(
             panelhistoricoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,6 +187,7 @@ public class vistaHistoricoVentas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btntodo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/database.png"))); // NOI18N
         btntodo.setText("Todo el Historial");
 
         rbgrupo.add(rbdia);

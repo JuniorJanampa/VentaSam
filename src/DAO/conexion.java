@@ -8,6 +8,7 @@ package DAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,7 +26,8 @@ public class conexion {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             /* Obtener la conexion */
 	    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sistemaventas","root","1234");
-        }catch(SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex){   
+        }catch(SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex){
+            JOptionPane.showMessageDialog(null,"Error: "+ ex,"Error de Conexion",JOptionPane.ERROR_MESSAGE);
         }
         return con;
     } 

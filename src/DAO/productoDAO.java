@@ -20,7 +20,7 @@ public class productoDAO {
         conec = new conexion();
     }
     
-    public String insertarProducto(String nom,String cate,double pcom,int stok, int unm, double pven,String codp){
+    public String insertarProducto(String nom,String cate,double pcom, double stok, int unm, double pven,String codp){
         String rpta = null;
         try {
             Connection accesoBD = conec.getConexion();
@@ -28,10 +28,11 @@ public class productoDAO {
             cs.setString(1, nom);
             cs.setString(2, cate);
             cs.setDouble(3, pcom);
-            cs.setInt(4, stok);
+            cs.setDouble(4, stok);
             cs.setInt(5, unm);
             cs.setDouble(6, pven);
             cs.setString(7, codp);
+            
             int filasAfectadas = cs.executeUpdate();
             if(filasAfectadas>0){
                 rpta = "Regitro Exitoso";
@@ -56,7 +57,7 @@ public class productoDAO {
                 modeloProd.setNombre(rs.getString(2));
                 modeloProd.setCategoria(rs.getString(3));
                 modeloProd.setPrecio_compra(rs.getDouble(4));
-                modeloProd.setStok(rs.getInt(5));
+                modeloProd.setStok(rs.getDouble(5));
                 modeloProd.setUnidad_medida(rs.getString(6));
                 modeloProd.setPrecio_venta(rs.getDouble(7));
                 modeloProd.setCod_prov(rs.getString(8));
@@ -68,7 +69,7 @@ public class productoDAO {
         return listarC;
     }
     
-    public String modificarProducto(String cod,String nom,String cate,double pcom,int stok, int unm,double pven,String codp){
+    public String modificarProducto(String cod,String nom,String cate,double pcom,double stok, int unm,double pven,String codp){
         String rpta=null;
         try {
             Connection accesoBD = conec.getConexion();
@@ -77,7 +78,7 @@ public class productoDAO {
             cs.setString(2, nom);
             cs.setString(3, cate);
             cs.setDouble(4, pcom);
-            cs.setInt(5, stok);
+            cs.setDouble(5, stok);
             cs.setInt(6, unm);
             cs.setDouble(7, pven);
             cs.setString(8, codp);

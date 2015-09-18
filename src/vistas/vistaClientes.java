@@ -48,6 +48,7 @@ public class vistaClientes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Clientes-SCAMVentas1.1");
+        setResizable(false);
 
         jLabel1.setText("Por favor ingrese el DNI del Cliente: ");
 

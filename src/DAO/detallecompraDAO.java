@@ -22,14 +22,14 @@ public class detallecompraDAO {
         conec = new conexion();
     }
     
-    public String insertarDetalle(String codCo,String codProd,int cant,int unm){
+    public String insertarDetalle(String codCo,String codProd,double cant,int unm){
         String rpta="";
         try {
             Connection accesoBD = conec.getConexion();
             CallableStatement cs = accesoBD.prepareCall("{call detc_ins(?,?,?,?)}");
             cs.setString(1, codCo);
             cs.setString(2, codProd);
-            cs.setInt(3, cant);
+            cs.setDouble(3, cant);
             cs.setInt(4, unm);
             int filas = cs.executeUpdate();
             if(filas>0){
@@ -53,7 +53,7 @@ public class detallecompraDAO {
                 modeloDCo.setCodigo(rs.getString(1));
                 modeloDCo.setCod_com(rs.getString(2));
                 modeloDCo.setCod_prod(rs.getString(3));
-                modeloDCo.setCant(rs.getInt(4));
+                modeloDCo.setCant(rs.getDouble(4));
                 modeloDCo.setUn_m(rs.getString(5));
                 listaDetCom.add(modeloDCo);
             }

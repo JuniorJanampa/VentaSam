@@ -35,7 +35,7 @@ public class controladorEmpleadoNM implements ActionListener{
     
     public void inicializarEmpleadoNM(Empleado modeloE,boolean vf){
         iniciarCMB();
-        vistaENM.setSize(550, 360);
+        vistaENM.setSize(550, 385);
         vistaENM.txtdni.setText(modeloE.getDni());
         dnio = vistaENM.txtdni.getText();
         vistaENM.txtpaterno.setText(modeloE.getApaterno());
@@ -47,6 +47,8 @@ public class controladorEmpleadoNM implements ActionListener{
         vistaENM.txtpass1.setText(modeloE.getPas());
         vistaENM.txtpass2.setText(modeloE.getPas());
         vistaENM.cmbrol.setSelectedItem(modeloE.getRol());
+        vistaENM.btnccon.setEnabled(true);
+        vistaENM.btncrear.setEnabled(true);
         edit(vf);
     }
     
@@ -119,7 +121,11 @@ public class controladorEmpleadoNM implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vistaENM.btnregistrar){
             registrar();
-            salir();
+                    vistaENM.btncrear.setEnabled(true);
+                    vistaENM.btnccon.setEnabled(true);
+
+            
+            //salir();
         }
         if(e.getSource() == vistaENM.btnmodificar){
             edit(true);
@@ -136,7 +142,7 @@ public class controladorEmpleadoNM implements ActionListener{
             vistaENM.txtpass1.setEditable(true);
             vistaENM.txtpass2.setEditable(true);
             vistaENM.btnccon.setEnabled(false);
-            vistaENM.setSize(550, 460);
+            vistaENM.setSize(550, 485);
         }
         if(e.getSource() == vistaENM.btncrear){
             editar();

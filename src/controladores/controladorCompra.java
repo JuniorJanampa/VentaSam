@@ -232,7 +232,7 @@ public class controladorCompra implements ActionListener,MouseListener{
 
                     for (int i = 0; i < tam; i++) {
                         String codProd = listaDC.get(i).getCod_prod();
-                        int cant = listaDC.get(i).getCant();
+                        double cant = listaDC.get(i).getCant();
                         int unm = listaDC.get(i).getUnm();
                         rpta = daoDCo.insertarDetalle(codCo,codProd , cant, unm);
                     }

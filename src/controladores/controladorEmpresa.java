@@ -55,6 +55,8 @@ public class controladorEmpresa implements ActionListener{
           if (r>0){
               JOptionPane.showMessageDialog(vistaEm, "Actualización Existosa");
               vistaEm.dispose();
+          } else {
+              JOptionPane.showMessageDialog(vistaEm, "No se puede actualizar");
           }
       }
       if (e.getSource()==vistaEm.btnsalir) {
